@@ -5,7 +5,7 @@
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
  
- const xyzSchema = new Schema(
+ const exampleSchema = new Schema(
    {
      name: { 
          type: String, 
@@ -30,4 +30,4 @@
    }
  );
  
- module.exports = mongoose.model("Xyz", xyzSchema); 
+ module.exports = mongoose.model("Example", exampleSchema); 

@@ -5,14 +5,14 @@
  const express = require("express");
  const router = express.Router();
  
- const xyzController = require("../controllers/xyz");
+ const exampleController = require("../controllers/example");
  
- router.get("/", xyzController.getXyz);
+ router.get("/", exampleController.getExample);
  
- router.post("/", xyzController.createXyz);
+ router.post("/", exampleController.createExample);
  
- router.put("/:id", xyzController.editXyz);
+ router.put("/:id", exampleController.editExample);
  
- router.delete("/:id", xyzController.deleteXyz);
+ router.delete("/:id", exampleController.deleteExample);
  
  module.exports = router; 

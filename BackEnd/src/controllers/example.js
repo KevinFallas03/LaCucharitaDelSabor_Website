@@ -2,32 +2,32 @@
  * CONTROLLER EXAMPLE
  */
 
- const Xyz = require("../models/xyz");
+ const example = require("../models/example");
 
- const xyzController = {};
+ const exampleController = {};
  
- xyzController.getXyz = async (req, res) => {
+ exampleController.getExample = async (req, res) => {
      res.json({
          message: "Hello from get!"
      });
  };
  
- xyzController.createXyz = async (req, res) => {
+ exampleController.createExample = async (req, res) => {
      res.json({
          message: "Hello from create!"
      });
  };
  
- xyzController.editXyz = async (req, res) => {
+ exampleController.editExample = async (req, res) => {
      res.json({
          message: "Hello from edit!"
      });
  };
  
- xyzController.deleteXyz = async (req, res) => {
+ exampleController.deleteExample = async (req, res) => {
      res.json({
          message: "Hello from delete!"
      });
  };
  
- module.exports = xyzController; 
+ module.exports = exampleController; 

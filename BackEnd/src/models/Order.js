@@ -27,7 +27,7 @@
             required: true 
         },
         contactInfo : {
-            type: [contactInfo],
+            type: [contactInfoSchema],
             required: true
         }
      }

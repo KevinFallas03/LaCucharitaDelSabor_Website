@@ -13,7 +13,15 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 /* Routes */
-//app.use("/api/example", require("./routes/example"));
+app.use("/api/customer", require("./routes/customer"));
+app.use("/api/delivery",require("./routes/delivery"));
+app.use("/api/order",require("./routes/order"));
+app.use("/api/product",require("./routes/product"));
+app.use("/api/user",require("./routes/usuario"));
+app.use("/api/userAuth",require("./routes/usuarioAuth"));
+
+
+
 
 // Example : later can be User, Product, ...
 // Tested from Postman with GET `http://localhost:3000/api/example, ....

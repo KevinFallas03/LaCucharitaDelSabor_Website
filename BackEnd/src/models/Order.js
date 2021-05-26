@@ -99,8 +99,7 @@ const deliveryInfoSchema = new Schema(
      }
    },
    {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
+    collection: 'Order' // createdAt and updatedAt 
    }
  );
  

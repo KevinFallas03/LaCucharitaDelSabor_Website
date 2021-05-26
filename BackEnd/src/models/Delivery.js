@@ -17,8 +17,7 @@
      }
    },
    {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
+     collection: 'Delivery' // createdAt and updatedAt 
    }
  );
  

@@ -33,9 +33,8 @@
     
    },
    {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
+     collection: 'Customer' // createdAt and updatedAt 
    }
  );
  
- module.exports = mongoose.model("Example", customerSchema); 
+ module.exports = mongoose.model("Customer", customerSchema); 

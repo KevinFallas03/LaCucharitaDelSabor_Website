@@ -25,8 +25,7 @@
      },
    },
    {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
+    collection: 'User' // createdAt and updatedAt 
    }
  );
  

@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="rectangle"></div>
+    <img class="title" src="assets/Images/Title.png">
+
+    <div class="notificationsContainer">
+        <button class="button notifications" matBadge="7" matBadgeSize="large" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" mat-icon-button>
+            <i class="fas fa-bell fa-3x"></i>
+        </button>
+
+        <button class="button logout" (click)="logout()" mat-icon-button>
+            <i class="fas fa-sign-out-alt fa-3x"></i>
+        </button>
+    </div>
+
+    
+</div>

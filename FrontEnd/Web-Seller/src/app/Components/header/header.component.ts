@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  //ATRIBUTOS
 
-  constructor() { }
+  hidden = false;
+
+  constructor(private routerService: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
+  }
+
+  
+  //FUNCIONES
+
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+  logout(){
+    localStorage.clear();
+    this.routerService.navigateByUrl('/');
+    this.openSnackBar('Has cerrado sesión','Cerrar');
   }
 
 

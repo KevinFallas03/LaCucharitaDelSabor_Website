@@ -1,0 +1,46 @@
+
+.container{
+    position: absolute;
+    width: 100%;
+    top: 0%;
+    
+}
+
+.rectangle {
+    position: absolute;
+    width: 88%;
+    height: 16px;
+    left: 1.5%;
+    top: 55%;
+    background: rgba(210, 184, 149, 0.2);
+    border-radius: 15px;
+}
+
+.title {
+    padding-top: 1%;
+    padding-left: 2%;
+}
+
+.notificationsContainer {
+    position: absolute;
+    top:45%;
+    right: 0%;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+    color: black;
+    background: none;
+    
+}
+
+.notifications {
+    right: 80%
+}
+
+.logout {
+    right: 40%
+}
+
+

@@ -20,15 +20,11 @@
     overflow: hidden;
 }
 
-.inicio {
+.button {
     width: 350px;
     height: 60px;
     position: absolute;
-    left: 20%;
-    top: 10%;
-    bottom: 71.19%;
     border: none;
-    background: #FFFFFF;
     border-radius: 22px;
     font-family: 'Trebuchet MS';
     font-style: normal;
@@ -38,238 +34,94 @@
     display: flex;
     align-items: center;
     text-align: center;
+    background: #FFFFFF;
     color: #90694A;
+    
 }
 
-.inicioFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.inicio {
     left: 20%;
     top: 10%;
     bottom: 71.19%;
-    border: none;
+   
+}
+
+.button.inicioFalse {
+    left: 20%;
+    top: 10%;
+    bottom: 71.19%;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 
 
-.pendientes {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.pendientes {
     left: 20%;
     top: 25%;
     bottom: 71.19%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #90694A;;
 }
 
-.pendientesFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.pendientesFalse {
     left: 20%;
     top: 25%;
     bottom: 71.19%;
-    border: none;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 
-.completados {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.completados {
     left: 20%;
     top: 40%;
     bottom: 71.19%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #90694A;;
 }
 
-.completadosFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.completadosFalse {
     left: 20%;
     top: 40%;
     bottom: 71.19%;
-    border: none;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 
-.menu {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.menu {
     left: 20%;
     top: 55%;
     bottom: 71.19%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #90694A;;
 }
 
-.menuFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.menuFalse {
     left: 20%;
     top: 55%;
     bottom: 71.19%;
-    border: none;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 
-.envios {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.envios {
     left: 20%;
     top: 70%;
     bottom: 71.19%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #90694A;;
 }
 
-.enviosFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.enviosFalse {
     left: 20%;
     top: 70%;
     bottom: 71.19%;
-    border: none;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 
-.usuarios {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.usuarios {
     left: 20%;
     top: 85%;
     bottom: 71.19%;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #90694A;;
 }
 
-.usuariosFalse {
-    width: 350px;
-    height: 60px;
-    position: absolute;
+.button.usuariosFalse {
     left: 20%;
     top: 85%;
     bottom: 71.19%;
-    border: none;
     background: none;
-    border-radius: 22px;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    text-align: center;
     color: white;
 }
 

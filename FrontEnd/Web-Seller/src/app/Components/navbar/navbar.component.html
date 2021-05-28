@@ -1,1 +1,112 @@
-<p>navbar works!</p>
+<mat-sidenav-container class="sideNavBar">
+    <mat-sidenav mode="side" opened></mat-sidenav>
+    <mat-sidenav-content class="innerSideNavBar">
+        
+        <div class="imageContainer">
+            <img src="assets/Images/Spoon.png">
+        </div>
+
+        <!-- INICIO -->
+        <div *ngIf="this.inicio; else inicioFalse">
+            <button class="inicio" mat-flat-button (click)="switchView('inicio')" >
+                <i class="fas fa-th-large"></i>
+                Inicio
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #inicioFalse>
+            <button class="inicioFalse" mat-flat-button (click)="switchView('inicio')">
+                <i class="fas fa-th-large"></i>
+                Inicio
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template>
+
+        <!-- PENDIENTES -->
+        <div *ngIf="this.pendientes; else pendientesFalse">
+            <button class="pendientes" mat-flat-button (click)="switchView('pendientes')">
+                <i class="fas fa-clock"></i>
+                Pendientes
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #pendientesFalse>
+            <button class="pendientesFalse" mat-flat-button (click)="switchView('pendientes')">
+                <i class="fas fa-clock"></i>
+                Pendientes
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template> 
+
+        <!-- COMPLETADOS -->
+        <div *ngIf="this.completados; else completadosFalse">
+            <button class="completados" mat-flat-button (click)="switchView('completados')">
+                <i class="fas fa-check"></i>
+                Completados
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #completadosFalse>
+            <button class="completadosFalse" mat-flat-button (click)="switchView('completados')">
+                <i class="fas fa-check"></i>
+                Completados
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template>
+
+        <!-- MENU -->
+        <div *ngIf="this.menu; else menuFalse">
+            <button class="menu" mat-flat-button (click)="switchView('menu')">
+                <i class="fas fa-bars"></i>
+                Menú
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #menuFalse>
+            <button class="menuFalse" mat-flat-button (click)="switchView('menu')"> 
+                <i class="fas fa-bars"></i>
+                Menú
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template>
+
+        <!-- ENVIOS -->
+        <div *ngIf="this.envios; else enviosFalse">
+            <button class="envios" mat-flat-button (click)="switchView('envios')">
+                <i class="fas fa-truck"></i>
+                Envíos
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #enviosFalse>
+            <button class="enviosFalse" mat-flat-button (click)="switchView('envios')">
+                <i class="fas fa-truck"></i>
+                Envíos
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template>
+
+        <!-- USUARIOS -->
+        <div *ngIf="this.usuarios; else usuariosFalse">
+            <button class="usuarios" mat-flat-button (click)="switchView('usuarios')">
+                <i class="fas fa-users"></i>
+                Usuarios
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <ng-template #usuariosFalse>
+            <button class="usuariosFalse" mat-flat-button (click)="switchView('usuarios')">
+                <i class="fas fa-users"></i>
+                Usuarios
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </ng-template>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>

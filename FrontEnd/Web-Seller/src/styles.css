@@ -5,7 +5,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-form-field-label {
     color: rgba(110, 70, 37) !important;
-  }
-  .mat-form-field-underline {
+}
+.mat-form-field-underline {
     background-color: rgb(110, 70, 37) !important;
-  }
+}
+

@@ -1,0 +1,27 @@
+<div class="container">
+    <img class="background">
+    <div class="title">
+        <div class="rectangle"></div>
+        <img src="assets/Images/Title.png">
+    </div>
+    <div class="text">
+        Inicio de sesión
+    </div>
+    
+    <mat-form-field class="textInputMail">
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput >
+    </mat-form-field>
+
+    <mat-form-field class="textInputPassword">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type='password'>
+    </mat-form-field>
+
+    <div class="text2">
+        ¿Olvidaste la contraseña?
+    </div>
+    <button class='Button' mat-raised-button (click)="onLoginClick()">Acceder</button>
+
+    
+</div>

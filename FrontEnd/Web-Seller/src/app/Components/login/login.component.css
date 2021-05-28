@@ -1,0 +1,112 @@
+.background{
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/Images/Login Background.png') no-repeat;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+
+.rectangle {
+    position: absolute;
+    width: 1251px;
+    height: 16px;
+    right: -38%;
+    top: 50%;
+    background: rgba(210, 184, 149, 0.2);
+    border-radius: 15px;
+  }
+
+.title {
+    position: absolute;
+    left: 33%;
+    top: 19%;
+}
+
+.text {
+    position: absolute;
+    left: 42.5%;
+    top: 40%;
+
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #352727;
+}
+
+.textInputMail {
+    position: absolute;
+    left: 39%;
+    top: 50%;
+    width: 390px;
+    height: 50px;
+    padding: 12px 20px;
+    margin: px 0;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-size: 20px;
+}
+
+.textInputPassword {
+    position: absolute;
+    left: 39%;
+    top: 60%;
+    width: 390px;
+    height: 50px;
+    padding: 12px 20px;
+    margin: px 0;
+    border-radius: 20px;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-size: 20px;
+}
+
+.text2 {
+    position: absolute;
+    left: 43%;
+    top: 70%;
+
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #352727;
+}
+.text2:hover {
+    text-decoration: underline;
+}
+
+.Button {
+    position: absolute;
+    width: 214px;
+    height: 40px;
+    left: 43.3%;
+    top: 75%;
+
+    background: #90694A;
+    border-radius: 20px;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color:white;
+}
+
+

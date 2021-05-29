@@ -6,7 +6,6 @@ const auth = require('../middleware/auth');
 
 
 router.get("/:email", userAuthController.getUserInfo);
-router.get("/userInfo", userAuthController.findUser);
 router.get("/", userAuthController.getUsers);
 
 router.post("/", userAuthController.createUserAuth);

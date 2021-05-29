@@ -111,14 +111,13 @@ userAuthController.deleteUserAuth = async (req,res) => {
     }
 }
 
-
 // Gets the information of one specific user
 userAuthController.getUserInfo = async (req, res) => {
     try {
-        const users = await UserAuth.findOne({email: req.params.email}, {tokens: false});
+        const user = await UserAuth.findOne({email: req.params.email}, {tokens: false});
 
         // 200: OK
-        res.status(200).json(users);
+        res.status(200).json(user);
     } catch (error) {
         // 400: Bad Request
         res.status(400).send(error);
@@ -127,7 +126,7 @@ userAuthController.getUserInfo = async (req, res) => {
 
 userAuthController.isAdmin = async (req, res) => {
     try {
-        res.status(200).json({isAdmin: req.user.isAdmin});
+        res.status(200).json({isAdmin: req.email.isAdmin});
     } catch (error) {
         res.status(400).json({Error: "Something went wrong"});
     }
@@ -136,14 +135,22 @@ userAuthController.isAdmin = async (req, res) => {
 // Obtains a single user by its credentials 
 userAuthController.login = async (req, res) => {
     try {
-        const userAuth = await UserAuth.getFromCredentials(req.body.email, req.body.password);
-        const token = await userAuth.generateToken();
+        const userFound = await UserAuth.findOne( {email: req.body.email} );
+        console.log(req.body.password);
+        if(!userFound) return res.status(400).json({message: "Invalid Credentials"})
+
+        const matchPassword = await UserAuth.comparePassword(req.body.password, userFound.password);
+
+        if(!matchPassword) return res.status(400).json({message: "Invalid Credentials"})
+
+        const token = await userFound.generateToken();
 
         // 200: OK
-        res.status(200).json({userAuth, token});
+        res.status(200).json({userFound, token});
     } catch (error) {
         // 401: Unathorized
-        res.status(401).send(error);
+        console.log("se cae");
+        res.status(401).send({error: "Something went wrong"});
     }
 }
 

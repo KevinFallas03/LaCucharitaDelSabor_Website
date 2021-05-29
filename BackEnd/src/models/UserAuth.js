@@ -5,36 +5,36 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
- const { Schema } = mongoose;
+const { Schema } = mongoose;
  
 var conn = require('../database')
 
- const UserAuthSchema = new Schema(
-   {
-     email: { 
-         type: String, 
-         required: true 
-     },
-     password: {
-         type: String,
-         required: true 
-     },
-     tokens: [{
-      token: {
-          type: String,
-          required: true
-      }
-      }],
-      isAdmin: {
-          type: Boolean,
-          require: true
-      }
-   },
-   {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
-   }
- );
+const UserAuthSchema = new Schema(
+  {
+    email: { 
+        type: String, 
+        required: true 
+    },
+    password: {
+        type: String,
+        required: true 
+    },
+    tokens: [{
+    token: {
+        type: String,
+        required: true
+    }
+    }],
+    isAdmin: {
+        type: Boolean,
+        require: true
+    }
+  },
+  {
+    versionKey: false, 
+    timestamps: true, // createdAt and updatedAt 
+  }
+);
  
 /*Security Methods*/
 
@@ -50,6 +50,7 @@ UserAuthSchema.pre('save', async function (next) {
 
 // Generates an authentication token
 UserAuthSchema.methods.generateToken = async function () {
+  console.log("estoy en generate token");
   const user = this;
   const generatedToken = jwt.sign({_id: user._id}, process.env.TOKEN_KEY);
 
@@ -61,25 +62,10 @@ UserAuthSchema.methods.generateToken = async function () {
 
 
 // Finds a specific user based on email AND password
-UserAuthSchema.statics.getFromCredentials = async (pEmail, password) => {
-
-  console.log(email);
-  const foundUser = await UserAuth.findOne({email: pEmail});
-
-
-  if (!pEmail) {
-      throw new Error({error: "Invalid credentials."});
-  }
-  const samePassword = await bcrypt.compare(password, foundUser.password);
-  
-  if (!samePassword) {
-      throw new Error({error: "Invalid credentials."});
-  }
-  
-  return foundUser
+UserAuthSchema.statics.comparePassword = async (password, receivedPassword) => {
+  return await bcrypt.compare(password, receivedPassword);
 }
 
+let userAuth = conn.db_Authentication.model("UserAuth", UserAuthSchema, "User"); 
 
- let userAuth = conn.db_Authentication.model("UserAuth", UserAuthSchema, "User"); 
-
- module.exports = userAuth;
+module.exports = userAuth;

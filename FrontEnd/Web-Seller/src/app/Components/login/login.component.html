@@ -10,12 +10,23 @@
     
     <mat-form-field class="textInputMail">
         <mat-label>Correo electrónico</mat-label>
-        <input matInput >
+        <input
+            matInput
+            placeholder="Email"
+            name="email"
+            [(ngModel)]="email"
+        />
     </mat-form-field>
 
     <mat-form-field class="textInputPassword">
         <mat-label>Contraseña</mat-label>
-        <input matInput type='password'>
+        <input
+            matInput
+            placeholder="Password"
+            type="password"
+            name="password"
+            [(ngModel)]="this.password"
+        />
     </mat-form-field>
 
     <div class="text2">

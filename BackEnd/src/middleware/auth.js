@@ -2,7 +2,7 @@
     AUTHENTICATION MIDDLEWARE
 */ 
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const UserAuth = require('../models/UserAuth');
 require('dotenv/config');
 
 // Authorization function, sets the request information
@@ -14,7 +14,7 @@ const auth = async(req, res, next) => {
         const data = jwt.verify(token, process.env.TOKEN_KEY);
 
         // Finds the user
-        const user = await User.findOne({_id: data._id, 'tokens.token': token});
+        const user = await UserAuth.findOne({_id: data._id, 'tokens.token': token});
 
         if (!user) {
             throw new Error();

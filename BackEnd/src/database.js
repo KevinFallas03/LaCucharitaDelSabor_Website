@@ -1,22 +1,45 @@
 const mongoose = require("mongoose");
 
 //cluster or local database for testing
-const URI = process.env.DB_CONNECTION || "mongodb://localhost/api_reposteria"; 
+const uriReposteria = process.env.DB_CONNECTION_REPOSTERIA || "mongodb://localhost/api_reposteria"; 
+const uriAuth = process.env.DB_CONNECTION_AUTH || "mongodb://localhost/api_reposteria"; 
 
-mongoose.connect(
-    URI, 
+
+mongoose.db_Reposteria = mongoose.createConnection(
+    uriReposteria, 
     {
         useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-).then(
-    (db) => {
-        console.log(`Connected to DB with '${URI}'`);
-    }
-).catch(
-    (err) => {
-        console.error(err);
+        useUnifiedTopology: true,
+        useCreateIndex:true,
+        useFindAndModify: false // for deprecation warning
     }
 );
+mongoose.db_Reposteria.on('connected', () => {
+    console.log(`Connected to Reposteria DB with '${uriAuth}'`);
+});
+
+mongoose.db_Reposteria.on('disconnected', () => {
+    console.log('connection disconnected');
+});
+
+
+mongoose.db_Authentication = mongoose.createConnection(
+    uriAuth, 
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useCreateIndex:true,
+        useFindAndModify: false // for deprecation warning
+    }
+);
+
+mongoose.db_Authentication.on('connected', () => {
+    console.log(`Connected to Authentication DB with '${uriAuth}'`);
+});
+
+mongoose.db_Authentication.on('disconnected', () => {
+    console.log('connection disconnected');
+});
+
 
 module.exports = mongoose; 

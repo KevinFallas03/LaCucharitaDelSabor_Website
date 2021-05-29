@@ -5,14 +5,11 @@ const userAuthController = {};
 
 // Obtains all the users
 userAuthController.getUsers = async (req, res) => {
-
-    try {
-        const users = await UserAuth.find({});
-        // 200: OK
-        res.status(200).json(users);
-    } catch (error) {
-        // 400: Bad Request
-        res.status(400).send(error);
+    try{
+        const customer = await UserAuth.find();
+        res.json(customer);
+    }catch (error){
+        res.json({message: error})
     }
 
 }

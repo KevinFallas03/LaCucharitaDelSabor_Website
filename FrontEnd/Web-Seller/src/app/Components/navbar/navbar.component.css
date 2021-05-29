@@ -1,0 +1,132 @@
+.sideNavBar {
+    position: absolute;
+    left: 0%;
+    right: 80%;
+    top: 15.23%;
+    bottom: 0%;
+    border-top-right-radius: 40px;
+    background: rgba(144, 105, 74, 1);
+}
+
+.imageContainer {
+    position: relative;
+    right: 0%;
+    left: 0%;
+    top: 10%;
+    
+}
+
+.innerSideNavBar {
+    overflow: hidden;
+}
+
+.button {
+    width: 350px;
+    height: 60px;
+    position: absolute;
+    border: none;
+    border-radius: 22px;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #FFFFFF;
+    color: #90694A;
+    
+}
+
+.button.inicio {
+    left: 20%;
+    top: 10%;
+    bottom: 71.19%;
+   
+}
+
+.button.inicioFalse {
+    left: 20%;
+    top: 10%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+
+.button.pendientes {
+    left: 20%;
+    top: 25%;
+    bottom: 71.19%;
+}
+
+.button.pendientesFalse {
+    left: 20%;
+    top: 25%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+.button.completados {
+    left: 20%;
+    top: 40%;
+    bottom: 71.19%;
+}
+
+.button.completadosFalse {
+    left: 20%;
+    top: 40%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+.button.menu {
+    left: 20%;
+    top: 55%;
+    bottom: 71.19%;
+}
+
+.button.menuFalse {
+    left: 20%;
+    top: 55%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+.button.envios {
+    left: 20%;
+    top: 70%;
+    bottom: 71.19%;
+}
+
+.button.enviosFalse {
+    left: 20%;
+    top: 70%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+.button.usuarios {
+    left: 20%;
+    top: 85%;
+    bottom: 71.19%;
+}
+
+.button.usuariosFalse {
+    left: 20%;
+    top: 85%;
+    bottom: 71.19%;
+    background: none;
+    color: white;
+}
+
+.fa-chevron-right{
+    position: absolute;
+    left: 80%;
+    top: 30%;
+}

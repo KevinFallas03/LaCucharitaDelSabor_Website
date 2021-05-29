@@ -3,7 +3,7 @@
     <img class="title" src="assets/Images/Title.png">
 
     <div class="notificationsContainer">
-        <button class="button notifications" matBadge="7" matBadgeSize="large" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" mat-icon-button>
+        <button class="button notifications" [matMenuTriggerFor]="menu"  matBadge="7" matBadgeSize="large" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()" mat-icon-button>
             <i class="fas fa-bell fa-3x"></i>
         </button>
 
@@ -12,5 +12,10 @@
         </button>
     </div>
 
-    
+      <mat-menu  #menu="matMenu" xPosition="before">
+            <h1 class="textTitle"> Notificaciones </h1>
+            <h3 class="text"> Alberto Quesada Realizó un pedido</h3>
+            <div class="line"></div>
+      </mat-menu>
+
 </div>

@@ -5,7 +5,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
-
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 const MaterialComponents = [ 
   MatButtonModule,
@@ -14,6 +15,9 @@ const MaterialComponents = [
   MatSidenavModule,
   MatIconModule,
   MatBadgeModule,
+  MatDialogModule,
+  MatMenuModule,
+  
 ];
 
 @NgModule({

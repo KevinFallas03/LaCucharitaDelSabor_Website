@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +14,7 @@ export class HeaderComponent implements OnInit {
 
   hidden = false;
 
-  constructor(private routerService: Router, private _snackBar: MatSnackBar) { }
+  constructor(private routerService: Router, private _snackBar: MatSnackBar,public dialog: MatDialog) { }
 
   ngOnInit(): void {
     
@@ -36,5 +37,8 @@ export class HeaderComponent implements OnInit {
     this.openSnackBar('Has cerrado sesión','Cerrar');
   }
 
+ 
 
+  
 }
+

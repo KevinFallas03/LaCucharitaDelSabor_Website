@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NotificationTrayComponent } from '../notification-tray/notification-tray.component';
 
 @Component({
   selector: 'app-header',
@@ -23,8 +24,13 @@ export class HeaderComponent implements OnInit {
   
   //FUNCIONES
 
-  toggleBadgeVisibility() {
+  openNotificationTray() {
     this.hidden = !this.hidden;
+    this.dialog.open(NotificationTrayComponent,{
+      width: '400px',
+      height: '500px',
+      position: {top:'120px',right:'135px'}
+    });
   }
 
   openSnackBar(message: string, action: string) {

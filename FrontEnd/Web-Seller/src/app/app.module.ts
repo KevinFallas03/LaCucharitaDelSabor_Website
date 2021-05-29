@@ -9,6 +9,7 @@ import { LoginComponent } from './Components/login/login.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { NotificationTrayComponent } from './Components/notification-tray/notification-tray.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,11 @@ import { HeaderComponent } from './Components/header/header.component';
     LoginComponent,
     NavbarComponent,
     MainDashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotificationTrayComponent
+  ],
+  entryComponents: [
+    NotificationTrayComponent,
   ],
   imports: [
     BrowserModule,

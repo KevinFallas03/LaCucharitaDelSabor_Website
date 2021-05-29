@@ -1,5 +1,5 @@
 const Customer = require("../models/Customer");
-const customerSchema = require("../models/Customer");
+
 const customerController = {};
 
 //GET ALL
@@ -25,11 +25,11 @@ customerController.getCustomerByMail = async (req,res) => {
 
 //POST
 customerController.createCustomer = async (req,res) => {
-    const customer = new customerSchema({
+    const customer = new Customer({
         mail : req.body.mail,
         customerInfo : req.body.customerInfo,
         orders : req.body.orders
-    })
+    });
     try{
         const savedCostumer = await customer.save();
         res.json(savedCostumer);

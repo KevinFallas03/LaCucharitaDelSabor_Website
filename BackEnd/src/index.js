@@ -1,5 +1,5 @@
 const app = require("./app"); // app with routers and middlewares binded
-require("./database"); // to connect with database
+//require("./database"); // to connect with database
 
 // starting the server
 app.listen(

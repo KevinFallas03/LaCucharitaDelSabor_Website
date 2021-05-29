@@ -1,4 +1,4 @@
-const userSchema = require("../models/Usuario");
+const userSchema = require("../models/User");
 const userController = {};
 
 userController.getUser = async (req,res) => {

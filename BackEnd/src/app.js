@@ -17,11 +17,8 @@ app.use("/api/customer", require("./routes/customer"));
 app.use("/api/delivery",require("./routes/delivery"));
 app.use("/api/order",require("./routes/order"));
 app.use("/api/product",require("./routes/product"));
-app.use("/api/user",require("./routes/usuario"));
-app.use("/api/userAuth",require("./routes/usuarioAuth"));
-
-
-
+app.use("/api/user",require("./routes/user"));
+app.use("/api/userAuth",require("./routes/userAuth"));
 
 // Example : later can be User, Product, ...
 // Tested from Postman with GET `http://localhost:3000/api/example, ....

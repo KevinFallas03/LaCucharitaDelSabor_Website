@@ -1,41 +1,42 @@
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
+const conn = require('../database');
 
- const mongoose = require("mongoose");
- const { Schema } = mongoose;
+const contactInfoSchema = new Schema(
+{
+  name: { 
+      type: String, 
+      required: true 
+  },
+  phone: {
+      type: String,
+      required: true 
+  }
+},
+);
 
- const contactInfoSchema = new Schema(
+const customerSchema = new Schema(
   {
-    name: { 
+    mail: { 
         type: String, 
         required: true 
     },
-    phone: {
-        type: String,
+    orders: {
+        type: Number,
         required: true 
+    },
+    customerInfo: {
+        type:[contactInfoSchema],
+        required: false
     }
+  
   },
+  {
+    collection: 'Customer' // createdAt and updatedAt 
+  }
 );
- 
- const customerSchema = new Schema(
-   {
-     mail: { 
-         type: String, 
-         required: true 
-     },
-     orders: {
-         type: Number,
-         required: true 
-     },
-     customerInfo: {
-         type:[contactInfoSchema],
-         required: false
-     }
-    
-   },
-   {
-     versionKey: false, 
-     timestamps: true, // createdAt and updatedAt 
-   }
- );
- 
- module.exports = mongoose.model("Example", customerSchema); 
+
+let customer = conn.db_Reposteria.model("Customer", customerSchema, "Customer");
+
+module.exports = customer; 

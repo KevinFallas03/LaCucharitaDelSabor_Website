@@ -7,6 +7,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 const MaterialComponents = [ 
   MatButtonModule,
@@ -17,6 +19,7 @@ const MaterialComponents = [
   MatBadgeModule,
   MatDialogModule,
   MatMenuModule,
+  MatGridListModule,
   
 ];
 

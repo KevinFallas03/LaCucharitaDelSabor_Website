@@ -31,6 +31,7 @@ import { AuthService } from './Services/AuthService/auth.service';
   entryComponents: [
     NotificationTrayComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

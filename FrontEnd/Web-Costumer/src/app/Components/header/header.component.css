@@ -1,0 +1,64 @@
+.HeaderContainer {
+    position: sticky;
+    height: 50%;
+    width: 100vw;
+}
+
+.title {
+    position: relative;
+    top: 30%;
+    right: -5%;
+    width: 30%;
+    max-width:100%;
+    height:auto;
+}
+
+.grid-container {
+    position: relative;
+    display: grid;
+    top: 17%;
+    left: 50%;
+    grid-template-columns: 0fr 1px 0fr 1px 0fr 1px 0fr 0fr;
+    column-gap: 25px;
+}
+
+.divider {
+    position: relative;
+    width: 0px;
+    height: 100%;
+    border: 1px solid #352727;
+}
+
+.Nbutton {
+    position: relative;
+    top: 15%;
+    margin-right: 2%;
+
+}
+
+.Cbutton {
+    position: relative;
+    width: 152px;
+    height: 35px;
+    border-radius: 22px;
+    background: #352727;
+}
+
+.Cbutton.text {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 27px;
+    color: white;
+}
+
+.Nbutton.text {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 27px;
+    color: #352727;
+}
+

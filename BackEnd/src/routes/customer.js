@@ -5,12 +5,12 @@ const customerController = require("../controllers/customer");
 
 router.get("/", customerController.getCustomer);
 
-router.get("/:mail",customerController.getCustomerByMail);
+router.get("/:email",customerController.getCustomerByMail);
 
 router.post("/", customerController.createCustomer);
  
-router.put("/:mail", customerController.updateCustomer);
+router.put("/:email", customerController.updateCustomer);
  
-router.delete("/:mail", customerController.deleteCustomer);
+router.delete("/:email", customerController.deleteCustomer);
  
 module.exports = router; 

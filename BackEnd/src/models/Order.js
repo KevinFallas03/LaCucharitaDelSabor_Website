@@ -22,7 +22,7 @@
 
  const customerInfoSchema = new Schema(
      {
-        mail: { 
+        email: { 
             type: String, 
             required: true 
         },

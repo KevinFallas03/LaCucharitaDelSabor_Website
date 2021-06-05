@@ -16,7 +16,7 @@ customerController.getCustomer = async (req,res) => {
 //GET WITH PARAMETERS
 customerController.getCustomerByMail = async (req,res) => {
     try{
-        const customer = await Customer.findOne({mail: req.params.mail});
+        const customer = await Customer.findOne({email: req.params.email});
         res.json(customer);
     }catch (error){
         res.json({message: error})
@@ -26,7 +26,7 @@ customerController.getCustomerByMail = async (req,res) => {
 //POST
 customerController.createCustomer = async (req,res) => {
     const customer = new Customer({
-        mail : req.body.mail,
+        email : req.body.email,
         customerInfo : req.body.customerInfo,
         orders : req.body.orders
     });
@@ -42,7 +42,7 @@ customerController.createCustomer = async (req,res) => {
 //UPDATE
 customerController.updateCustomer = async (req,res) => {
     try {
-        const updatedCostumer = await Customer.findOneAndUpdate({mail : req.params.mail},{$set : {mail : req.body.mail , customerInfo : req.body.customerInfo, orders : req.body.orders}});
+        const updatedCostumer = await Customer.findOneAndUpdate({email : req.params.email},{$set : {email : req.body.email , customerInfo : req.body.customerInfo, orders : req.body.orders}});
         res.json(updatedCostumer);
     } catch (error) {
         res.json({message : error});
@@ -52,7 +52,7 @@ customerController.updateCustomer = async (req,res) => {
 //DELETE
 customerController.deleteCustomer = async (req,res) => {
     try {
-        const removedCustomer = await Customer.findOneAndDelete({mail: req.params.mail});
+        const removedCustomer = await Customer.findOneAndDelete({email: req.params.email});
         res.json(removedCustomer);
     } catch (error) {
         res.json({message : error});

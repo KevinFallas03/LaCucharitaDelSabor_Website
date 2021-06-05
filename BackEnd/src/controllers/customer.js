@@ -42,7 +42,7 @@ customerController.createCustomer = async (req,res) => {
 //UPDATE
 customerController.updateCustomer = async (req,res) => {
     try {
-        const updatedCostumer = await Customer.findOneAndUpdate({email : req.params.email},{$set : {email : req.body.email , customerInfo : req.body.customerInfo, orders : req.body.orders}});
+        const updatedCostumer = await Customer.findOneAndUpdate({email : req.params.email}, req.body, {new: true});
         res.json(updatedCostumer);
     } catch (error) {
         res.json({message : error});

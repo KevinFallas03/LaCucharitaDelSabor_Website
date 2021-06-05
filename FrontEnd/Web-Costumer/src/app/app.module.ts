@@ -7,18 +7,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './Components/header/header.component';
 import { BannerComponent } from './Components/banner/banner.component';
+import { SubscriptionComponent } from './Components/subscription/subscription.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    BannerComponent
+    BannerComponent,
+    SubscriptionComponent
   ],
   imports: [
     MaterialModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

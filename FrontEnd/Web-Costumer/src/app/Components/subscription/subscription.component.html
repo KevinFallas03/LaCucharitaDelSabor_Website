@@ -1,0 +1,22 @@
+<div class="SubscriptionContainer">  
+    <h1 class="Title"> Suscripciones </h1>
+    <p class="Text"> 
+        Suscríbete a la Cucharita del Sabor para estar al tanto de los últimos productos, 
+        <br><br>¡promociones especiales ofrecidas por nuestra cocina!
+    </p>
+
+    <div class=InputContainer>
+        <mat-form-field class="MailInput">
+            <mat-label>Correo electrónico</mat-label>
+            <input 
+                matInput
+                name="email"
+                [(ngModel)]="email"
+                placeholder="Email"
+            >
+        </mat-form-field>
+    </div>
+
+    <button class="button text" mat-raised-button (click)="onClick()"> Inscribirse </button>
+    
+</div>

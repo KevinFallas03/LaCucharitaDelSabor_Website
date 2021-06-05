@@ -5,6 +5,8 @@
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
  
+ const conn = require('../database');
+
  const deliverySchema = new Schema(
    {
      location: { 
@@ -21,4 +23,6 @@
    }
  );
  
- module.exports = mongoose.model("Delivery", deliverySchema); 
+ let delivery = conn.db_Reposteria.model("Delivery", deliverySchema, "Delivery");
+
+ module.exports = delivery; 

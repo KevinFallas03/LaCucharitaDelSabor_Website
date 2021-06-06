@@ -3,7 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 const MaterialComponents = [ 
   MatButtonModule,
@@ -11,6 +14,8 @@ const MaterialComponents = [
   MatListModule,
   MatFormFieldModule,
   MatInputModule,
+  MatExpansionModule,
+  MatGridListModule,
 ];
 
 @NgModule({

@@ -1,8 +1,13 @@
+.container {
+    position: relative;
+    height: 70%;
+    width: 100vw;
+}
+
 .SubscriptionContainer {
     position: relative;
     width: 100vw;
     height: 34%;
-    top: 10%;
     background: #352727;
 }
 

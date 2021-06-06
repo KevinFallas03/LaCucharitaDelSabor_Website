@@ -9,13 +9,15 @@ import { HeaderComponent } from './Components/header/header.component';
 import { BannerComponent } from './Components/banner/banner.component';
 import { SubscriptionComponent } from './Components/subscription/subscription.component';
 import { FormsModule } from '@angular/forms';
+import { DeliveryComponent } from './Components/delivery/delivery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     BannerComponent,
-    SubscriptionComponent
+    SubscriptionComponent,
+    DeliveryComponent
   ],
   imports: [
     MaterialModule,

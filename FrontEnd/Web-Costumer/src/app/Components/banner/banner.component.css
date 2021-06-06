@@ -1,6 +1,12 @@
+.container {
+    position: relative;
+    height: 70%;
+    width: 100vw;
+}
+
 .bannerContainer {
     position: relative;
-    height: 60%;
+    height: 95%;
     width: 100vw;
     background-image: url("./../../../assets/Images/Banner.png") ;
     background-size: cover;

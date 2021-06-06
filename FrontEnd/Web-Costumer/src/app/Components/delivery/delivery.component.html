@@ -1,0 +1,78 @@
+
+<div class="container">
+    <div class="deliveryContainer">
+        <div class="transparentFX"></div>
+    
+        <h1 class= "title"> Descúbre el alcance de la Cucharita </h1>
+        
+        <div class="center">
+            <div class= "line"></div>
+        </div>
+    
+        <div class="subtitle">
+            <h1 class="text"> Consulta precios y zonas de envío</h1>
+        </div>
+        
+        <div class="centerButton">
+            <button class= "button text" mat-raised-button> Consultar </button>
+        </div>
+    
+        <div class="expansionPannel">
+            <mat-accordion>
+                <mat-expansion-panel hideToggle [expanded]="panelOpenState" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                    <h1 class= "LocationTitle"> Envíos </h1>
+                    <mat-grid-list cols="3" rowHeight="2:1">
+                        <mat-grid-tile *ngFor="let location of locations" >
+    
+                            <div >
+                                <img src="/assets/Images/Location.png" class="centerHorizontally">
+                                
+                                <div class="deliveryText">
+                                    <p>{{location.zona}}</p>
+                                    <P>{{location.precio}}</P>
+                                </div>
+                            </div>
+    
+                        </mat-grid-tile>
+                    </mat-grid-list>
+    
+                    <div class="addLocation">
+                        <h1 class= "LocationTitle White"> ¿No está tu ubicación? </h1>
+                        <p class="deliveryText White">Envíanos tu ubicación para valorar la posibilidad de envío. <br> O bien contáctanos en nuestras redes sociales. </p>
+    
+                        <div class="InputMail">
+                            <mat-form-field class="InputText">
+                                <mat-label>Correo Electrónico</mat-label>
+                                <input  matInput
+                                        name="email"
+                                        [(ngModel)]="email"
+                                >
+                            </mat-form-field>
+                        </div>
+    
+                        <div class="InputLocation">
+                            <mat-form-field class="InputText">
+                                <mat-label>Ubicación</mat-label>
+                                <input  matInput
+                                        name="location"
+                                        [(ngModel)]="location"
+                                >
+                            </mat-form-field>
+                        </div>
+    
+                        <button mat-raised-button class="LocationButton" (click)="onClick()"> Consultar </button>
+    
+                    </div>
+                    
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+    
+        <div class="centerButton">
+            <button class= "button text" mat-raised-button (click)="openPanel()"> Consultar </button>
+        </div>
+        
+    </div>
+</div>
+
+

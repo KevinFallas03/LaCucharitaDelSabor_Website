@@ -11,7 +11,6 @@ userAuthController.getUsers = async (req, res) => {
     }catch (error){
         res.json({message: error})
     }
-
 }
 
 // Given a userAuth token, return the userAuth id that have this token in the token list
@@ -151,6 +150,34 @@ userAuthController.login = async (req, res) => {
         // 401: Unathorized
         console.log("se cae");
         res.status(401).send({error: "Something went wrong"});
+    }
+}
+
+// Logs off the user from a single system (removes one token)
+userAuthController.logoff = async (req, res) => {
+    try {
+        // Removes the token being used
+        req.user.tokens = req.user.tokens.filter((tk) => {
+            return tk.token != req.token;
+        });
+        // Updates the tokens
+        await req.user.save();
+        res.status(200).json({});
+    } catch (error) {
+        res.status(400).json({Error: "Something went wrong"});
+    }
+}
+
+// Logs off the user from all devices (removes all tokens)
+userAuthController.forceLogoff = async (req, res) => {
+    try {
+        // Removes all tokens from the account
+        req.user.tokens = [];
+        // Updates the tokens
+        await req.user.save();
+        res.status(200).json({});
+    } catch (error) {
+        res.status(400).json({Error: "Something went wrong"});
     }
 }
 

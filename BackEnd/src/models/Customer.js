@@ -18,7 +18,7 @@ const contactInfoSchema = new Schema(
 
 const customerSchema = new Schema(
   {
-    mail: { 
+    email: { 
         type: String, 
         required: true 
     },

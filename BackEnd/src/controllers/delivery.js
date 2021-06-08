@@ -3,9 +3,19 @@ const Delivery = require("../models/Delivery");
 const deliveryController = {};
 
 // get all products
-deliveryController.getDelivery = async (req,res) => {
+deliveryController.getAllDeliveries = async (req,res) => {
     try{
         const delivery = await Delivery.find({});
+        res.json(delivery);
+    }catch (error){
+        res.json({message: error})
+    }
+}
+
+// get delivery by id
+deliveryController.getDelivery = async (req,res) => {
+    try{
+        const delivery = await Delivery.find({_id: req.params.id});
         res.json(delivery);
     }catch (error){
         res.json({message: error})

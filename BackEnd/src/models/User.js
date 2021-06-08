@@ -5,13 +5,15 @@
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
  
+const conn = require('../database');
+
  const userSchema = new Schema(
    {
      name: { 
          type: String, 
          required: true 
      },
-     mail: {
+     email: {
          type: String,
          required: true 
      },
@@ -23,10 +25,16 @@
          type: Boolean, 
          required: true 
      },
+     image: {
+       type: String,
+       required: true
+     }
    },
    {
     collection: 'User' // createdAt and updatedAt 
    }
  );
  
- module.exports = mongoose.model("User", userSchema); 
+ let user = conn.db_Reposteria.model("User", userSchema, "User");
+
+ module.exports = user;

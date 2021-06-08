@@ -4,6 +4,8 @@
 
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
+
+ const conn = require('../database');
  
  const productSchema = new Schema(
    {
@@ -29,4 +31,6 @@
    }
  );
  
- module.exports = mongoose.model("Product", productSchema); 
+ let product = conn.db_Reposteria.model("Product", productSchema, "Product");
+
+ module.exports = product; 

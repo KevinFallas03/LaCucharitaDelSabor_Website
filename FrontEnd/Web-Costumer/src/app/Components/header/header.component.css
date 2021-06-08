@@ -2,7 +2,7 @@
 .HeaderContainer {
     position: sticky;
     height: 50%;
-    width: 100vw;
+    width: 100%;
 }
 
 .title {
@@ -15,6 +15,7 @@
 }
 
 .grid-container {
+    width: fit-content;
     position: relative;
     display: grid;
     top: 17%;

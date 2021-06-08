@@ -10,6 +10,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: none;
 }
 
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
 
 
+.mat-expansion-panel-body {
+    padding: 0 !important;
+}
   

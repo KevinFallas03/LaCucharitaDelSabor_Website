@@ -1,0 +1,61 @@
+
+carousel{
+    z-index: 9;
+    position: absolute;
+    top:36%;
+    left:27%;
+    width:70%
+}
+
+.container.title{
+    position: absolute;
+    left: 26.39%;
+    right: 55.21%;
+    top: 20.12%;
+    bottom: 73.54%;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: right;
+    color: #352727;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    text-align: right;
+    color: #352727;
+}
+
+h3{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    left:50%;
+    color: #352727;
+    text-align: center;
+}
+
+
+.container.queries{
+    position: absolute;
+    width: 35%;
+    left: 27%;
+    top: 62%;
+}
+
+mat-grid-tile {
+    position: absolute;
+    background: #D2B895;
+}
+
+table {
+    position: absolute;
+    width: 32%;
+    top: 66.5%;
+    left: 65%;
+}

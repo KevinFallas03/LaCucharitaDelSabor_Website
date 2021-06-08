@@ -11,33 +11,33 @@
             <button class="button inicio" mat-flat-button (click)="switchView('inicio')" >
                 <i class="fas fa-th-large"></i>
                 Inicio
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right true"></i>
             </button>
         </div>
 
         <ng-template #inicioFalse>
-            <button class="button inicioFalse" mat-flat-button (click)="switchView('inicio')">
+            <a class="button inicioFalse" mat-flat-button (click)="switchView('inicio')" routerLink="/dashboard">
                 <i class="fas fa-th-large"></i>
                 Inicio
-                <i class="fas fa-chevron-right"></i>
-            </button>
+                <i class="fas fa-chevron-right false"></i>
+            </a>
         </ng-template>
 
         <!-- PENDIENTES -->
         <div *ngIf="this.elements.pendientes; else pendientesFalse">
-            <button class="button pendientes" mat-flat-button (click)="switchView('pendientes')">
+            <a class="button pendientes" mat-flat-button (click)="switchView('pendientes')" >
                 <i class="fas fa-clock"></i>
                 Pendientes
-                <i class="fas fa-chevron-right"></i>
-            </button>
+                <i class="fas fa-chevron-right true"></i>
+            </a>
         </div>
 
         <ng-template #pendientesFalse>
-            <button class="button pendientesFalse" mat-flat-button (click)="switchView('pendientes')">
+            <a class="button pendientesFalse" mat-flat-button (click)="switchView('pendientes')" routerLink="/pendientes">
                 <i class="fas fa-clock"></i>
                 Pendientes
-                <i class="fas fa-chevron-right"></i>
-            </button>
+                <i class="fas fa-chevron-right false"></i>
+            </a>
         </ng-template> 
 
         <!-- COMPLETADOS -->
@@ -45,7 +45,7 @@
             <button class="button completados" mat-flat-button (click)="switchView('completados')">
                 <i class="fas fa-check"></i>
                 Completados
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right true"></i>
             </button>
         </div>
 
@@ -53,7 +53,7 @@
             <button class="button completadosFalse" mat-flat-button (click)="switchView('completados')">
                 <i class="fas fa-check"></i>
                 Completados
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right false"></i>
             </button>
         </ng-template>
 
@@ -62,7 +62,7 @@
             <button class="button menu" mat-flat-button (click)="switchView('menu')">
                 <i class="fas fa-bars"></i>
                 Menú
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right true"></i>
             </button>
         </div>
 
@@ -70,7 +70,7 @@
             <button class="button menuFalse" mat-flat-button (click)="switchView('menu')"> 
                 <i class="fas fa-bars"></i>
                 Menú
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right false"></i>
             </button>
         </ng-template>
 
@@ -79,7 +79,7 @@
             <button class="button envios" mat-flat-button (click)="switchView('envios')">
                 <i class="fas fa-truck"></i>
                 Envíos
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right true"></i>
             </button>
         </div>
 
@@ -87,7 +87,7 @@
             <button class="button enviosFalse" mat-flat-button (click)="switchView('envios')">
                 <i class="fas fa-truck"></i>
                 Envíos
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right false"></i>
             </button>
         </ng-template>
 
@@ -96,7 +96,7 @@
             <button class="button usuarios" mat-flat-button (click)="switchView('usuarios')">
                 <i class="fas fa-users"></i>
                 Usuarios
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right true"></i>
             </button>
         </div>
 
@@ -104,7 +104,7 @@
             <button class="button usuariosFalse" mat-flat-button (click)="switchView('usuarios')">
                 <i class="fas fa-users"></i>
                 Usuarios
-                <i class="fas fa-chevron-right"></i>
+                <i class="fas fa-chevron-right false"></i>
             </button>
         </ng-template>
 

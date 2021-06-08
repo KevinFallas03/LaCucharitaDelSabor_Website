@@ -6,41 +6,40 @@ const userAuthController = {};
 // Obtains all the users
 userAuthController.getUsers = async (req, res) => {
     try{
-        const customer = await UserAuth.find();
-        res.json(customer);
+        const userAuth = await UserAuth.find();
+        res.json(userAuth);
     }catch (error){
         res.json({message: error})
     }
-
 }
 
-// Given a user token, return the user id that have this token in the token list
+// Given a userAuth token, return the userAuth id that have this token in the token list
 userAuthController.getUserAuthByToken = async (req,res) => {
     const { token } = req.params;
     try {
-        const user = await UserAuth.find(
+        const userAuth = await UserAuth.find(
             { 'tokens.token':token },
             { _id:1, email:1, isAdmin:1, tokens:1 }
         );
-        res.status(200).json(user);
+        res.status(200).json(userAuth);
     } catch (error) {
         res.status(401).send(error);
     }
 }
 
-// Gets a single user based on their email.
+// Gets a single userAuth based on their email.
 userAuthController.findUser = async (req, res) => {
     try {
-        const user = await UserAuth.getFromCredentials(req.body.email, req.body.password);
+        const userAuth = await UserAuth.getFromCredentials(req.body.email, req.body.password);
 
-        // No user was found
-        if (!user) {
+        // No userAuth was found
+        if (!userAuth) {
             return res.status(401).json({error: "Invalid credentials"});
         }
 
         const token = await UserAuth.generateToken();
         // 200: OK
-        res.status(200).json({user, token});
+        res.status(200).json({userAuth, token});
     } catch (error) {
         // 400: Bad Request
         res.status(400).send(error);
@@ -48,7 +47,7 @@ userAuthController.findUser = async (req, res) => {
 }
 
 userAuthController.createUserAuth = async (req,res) => {
-    // Creates the new user
+    // Creates the new userAuth
 
     if (await UserAuth.findOne( {email: req.body.email} )) {
         return res
@@ -62,11 +61,11 @@ userAuthController.createUserAuth = async (req,res) => {
         isAdmin: req.body.isAdmin
     });
 
-    // Tries to save the user
+    // Tries to save the userAuth
     try {
         await newUser.save();
 
-        // 201: user was created and saved successfully
+        // 201: userAuth was created and saved successfully
         res.status(201).send({newUser});
 
     } catch (error) {
@@ -111,13 +110,13 @@ userAuthController.deleteUserAuth = async (req,res) => {
     }
 }
 
-// Gets the information of one specific user
+// Gets the information of one specific userAuth
 userAuthController.getUserInfo = async (req, res) => {
     try {
-        const user = await UserAuth.findOne({email: req.params.email}, {tokens: false});
+        const userAuth = await UserAuth.findOne({email: req.params.email}, {tokens: false});
 
         // 200: OK
-        res.status(200).json(user);
+        res.status(200).json(userAuth);
     } catch (error) {
         // 400: Bad Request
         res.status(400).send(error);
@@ -132,7 +131,7 @@ userAuthController.isAdmin = async (req, res) => {
     }
 }
 
-// Obtains a single user by its credentials 
+// Obtains a single userAuth by its credentials 
 userAuthController.login = async (req, res) => {
     try {
         const userFound = await UserAuth.findOne( {email: req.body.email} );
@@ -151,6 +150,34 @@ userAuthController.login = async (req, res) => {
         // 401: Unathorized
         console.log("se cae");
         res.status(401).send({error: "Something went wrong"});
+    }
+}
+
+// Logs off the user from a single system (removes one token)
+userAuthController.logoff = async (req, res) => {
+    try {
+        // Removes the token being used
+        req.user.tokens = req.user.tokens.filter((tk) => {
+            return tk.token != req.token;
+        });
+        // Updates the tokens
+        await req.user.save();
+        res.status(200).json({});
+    } catch (error) {
+        res.status(400).json({Error: "Something went wrong"});
+    }
+}
+
+// Logs off the user from all devices (removes all tokens)
+userAuthController.forceLogoff = async (req, res) => {
+    try {
+        // Removes all tokens from the account
+        req.user.tokens = [];
+        // Updates the tokens
+        await req.user.save();
+        res.status(200).json({});
+    } catch (error) {
+        res.status(400).json({Error: "Something went wrong"});
     }
 }
 

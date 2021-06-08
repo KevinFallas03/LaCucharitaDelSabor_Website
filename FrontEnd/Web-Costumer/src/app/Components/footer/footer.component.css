@@ -1,0 +1,37 @@
+.footerContainer {
+    position: relative;
+    width: 100vw;
+    height: 40%;
+}
+
+.menuContainer {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    text-align: left;
+}
+
+.findUsContainer {
+    position: absolute;
+    right: 10%;
+    top: 15%;
+    text-align: right;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0%;
+    width: 100vw;
+    height: 20%;
+    background-color: black;
+}
+
+.title {
+    position: relative;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #90694A;
+}

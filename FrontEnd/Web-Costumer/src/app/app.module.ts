@@ -10,6 +10,7 @@ import { BannerComponent } from './Components/banner/banner.component';
 import { SubscriptionComponent } from './Components/subscription/subscription.component';
 import { FormsModule } from '@angular/forms';
 import { DeliveryComponent } from './Components/delivery/delivery.component';
+import { FooterComponent } from './Components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DeliveryComponent } from './Components/delivery/delivery.component';
     HeaderComponent,
     BannerComponent,
     SubscriptionComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    FooterComponent
   ],
   imports: [
     MaterialModule,

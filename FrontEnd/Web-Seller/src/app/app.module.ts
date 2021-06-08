@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -39,6 +40,7 @@ import { AuthService } from './Services/AuthService/auth.service';
     MaterialModule,
     HttpClientModule,
     FormsModule,
+    IvyCarouselModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

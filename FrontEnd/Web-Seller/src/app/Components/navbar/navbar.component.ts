@@ -85,5 +85,4 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem("elements",JSON.stringify(this.elements));
   }
 
-
 }

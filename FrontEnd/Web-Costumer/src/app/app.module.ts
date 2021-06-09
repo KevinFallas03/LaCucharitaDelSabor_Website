@@ -11,6 +11,7 @@ import { SubscriptionComponent } from './Components/subscription/subscription.co
 import { FormsModule } from '@angular/forms';
 import { DeliveryComponent } from './Components/delivery/delivery.component';
 import { FooterComponent } from './Components/footer/footer.component';
+import { CarouselComponent } from './Components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FooterComponent } from './Components/footer/footer.component';
     BannerComponent,
     SubscriptionComponent,
     DeliveryComponent,
-    FooterComponent
+    FooterComponent,
+    CarouselComponent
   ],
   imports: [
     MaterialModule,

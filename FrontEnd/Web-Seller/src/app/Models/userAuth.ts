@@ -5,4 +5,4 @@ export interface UserAuth {
     isAdmin?: boolean;
   }
   
-  export default UserAuth;
+export default UserAuth;

@@ -19,6 +19,11 @@ import { NotificationTrayComponent } from './Components/notification-tray/notifi
 
 // SERVICES MODULES
 import { AuthService } from './Services/AuthService/auth.service';
+import { MenuComponent } from './Components/menu/menu.component';
+import { PendientesComponent } from './Components/pendientes/pendientes.component';
+import { CompletadosComponent } from './Components/completados/completados.component';
+import { EnviosComponent } from './Components/envios/envios.component';
+import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { AuthService } from './Services/AuthService/auth.service';
     NavbarComponent,
     MainDashboardComponent,
     HeaderComponent,
-    NotificationTrayComponent
+    NotificationTrayComponent,
+    MenuComponent,
+    PendientesComponent,
+    CompletadosComponent,
+    EnviosComponent,
+    UsuariosComponent
   ],
   entryComponents: [
     NotificationTrayComponent,
@@ -40,7 +50,7 @@ import { AuthService } from './Services/AuthService/auth.service';
     MaterialModule,
     HttpClientModule,
     FormsModule,
-    IvyCarouselModule
+    IvyCarouselModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

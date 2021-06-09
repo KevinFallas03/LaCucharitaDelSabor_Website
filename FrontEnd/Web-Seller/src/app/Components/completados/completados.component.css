@@ -1,17 +1,9 @@
-
-carousel{
-    z-index: 9;
-    position: absolute;
-    top:36%;
-    left:27%;
-    width:70%
-}
-
 .container.title{
     position: absolute;
     left: 26.39%;
     right: 55.21%;
     top: 20.12%;
+    bottom: 73.54%;
 }
 
 h1{
@@ -37,26 +29,4 @@ h3{
     left:50%;
     color: #352727;
     text-align: center;
-}
-
-
-.container.queries{
-    position: relative;
-    width: 35%;
-    height: 35%;
-    left: 27%;
-    top: 62%;
-}
-
-mat-grid-tile {
-    position: absolute;
-    background: #D2B895;
-}
-
-table {
-    position: absolute;
-    width: 32%;
-    top: 65%;
-    left: 65%;
-    background-color: #ffffff00
 }

@@ -1,0 +1,21 @@
+.container {
+    height: 930px;
+    width: 100%;
+}
+
+.title {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 54px;
+    text-align: center;
+    color: #90694A;
+}
+
+
+.header {
+    position: relative;
+    text-align: center;
+    top: 150px;
+}

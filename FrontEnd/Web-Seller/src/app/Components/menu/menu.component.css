@@ -25,9 +25,7 @@ h3{
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-    left:50%;
     color: #352727;
-    text-align: center;
 }
 
 /* cards */
@@ -38,13 +36,40 @@ h3{
     left: 22%
 }
 
-.content > mat-card {
-    width: 300px;
+.example-card {
+  max-width: 400px;
 }
 
-/* mat-card-content{
+.container.cards{
     position: relative;
-    left: 25%; 
+    left: 22%;
+    top: 28%;
+}
+
+mat-grid-list {
+    background: lightblue;
+}
+
+.button.agregar {
+    display: flex;
+    flex-direction: column;
+    background-color:#ffffff00;
+    align-items: center;
+    border: none;
+}
+
+/* mat-icon:hover{
+    background-color:#9b9b9b7a;
+    border-radius: 50px
+}
+
+mat-icon::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
 } */
 
 .button.modificar{
@@ -57,6 +82,5 @@ h3{
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    color:white;
     color: #FFFFFF;
 }

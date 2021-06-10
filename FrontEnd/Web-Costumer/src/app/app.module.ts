@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { DeliveryComponent } from './Components/delivery/delivery.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
+import { MenuComponent } from './Components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,9 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
     SubscriptionComponent,
     DeliveryComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    MenuComponent,
+    
   ],
   imports: [
     MaterialModule,

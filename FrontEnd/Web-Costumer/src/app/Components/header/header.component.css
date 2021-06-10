@@ -19,7 +19,7 @@
     position: relative;
     display: grid;
     top: 17%;
-    left: 50%;
+    left: 60%;
     grid-template-columns: 0fr 1px 0fr 1px 0fr 1px 0fr 0fr;
     column-gap: 25px;
 }

@@ -3,15 +3,13 @@ import { Product } from 'src/app/Models/Product';
 
 
 @Component({
-  selector: 'app-carousel',
-  templateUrl: './carousel.component.html',
-  styleUrls: ['./carousel.component.css']
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.css']
 })
-export class CarouselComponent implements OnInit {
+export class MenuComponent implements OnInit {
 
-  //ATRIBUTOS
-
-  public productsLists : Product[][];
+  public productsLists : Product[];
   public cart : Product[];
   public hidden : Boolean = false;
 
@@ -29,7 +27,7 @@ export class CarouselComponent implements OnInit {
 
   // FUNCIONES
 
-  public loadProducts(): Product[][]{
+  public loadProducts(): Product[]{
     let product:Product = {};
     product._id = '1';
     product.image = 'sasa';
@@ -37,7 +35,7 @@ export class CarouselComponent implements OnInit {
     product.portions = 13;
     product.price = 13000;
 
-    return [[product,product],[product,product],[product]];
+    return [product,product,product,product,product];
   }
 
   public addProduct(product: Product){
@@ -58,8 +56,3 @@ export class CarouselComponent implements OnInit {
     console.log(this.cart);
   }
 }
-
-
-
-
-

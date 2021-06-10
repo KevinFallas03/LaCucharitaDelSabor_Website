@@ -6,8 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
+
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -16,14 +17,17 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { MainDashboardComponent } from './Components/main-dashboard/main-dashboard.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { NotificationTrayComponent } from './Components/notification-tray/notification-tray.component';
-
-// SERVICES MODULES
-import { AuthService } from './Services/AuthService/auth.service';
 import { MenuComponent } from './Components/menu/menu.component';
+import { EditProductComponent } from './Components/menu/edit-product/edit-product.component'
 import { PendientesComponent } from './Components/pendientes/pendientes.component';
 import { CompletadosComponent } from './Components/completados/completados.component';
 import { EnviosComponent } from './Components/envios/envios.component';
 import { UsuariosComponent } from './Components/usuarios/usuarios.component';
+
+// SERVICES MODULES
+import { AuthService } from './Services/AuthService/auth.service';
+import { CreateProductComponent } from './Components/menu/create-product/create-product.component';
+
 
 @NgModule({
   declarations: [
@@ -37,10 +41,14 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     PendientesComponent,
     CompletadosComponent,
     EnviosComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    EditProductComponent,
+    CreateProductComponent,
   ],
   entryComponents: [
-    NotificationTrayComponent,
+    NotificationTrayComponent, 
+    EditProductComponent, 
+    CreateProductComponent,
   ],
   
   imports: [
@@ -51,6 +59,7 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
     HttpClientModule,
     FormsModule,
     IvyCarouselModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

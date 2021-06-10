@@ -7,7 +7,7 @@ carousel{
     width:70%
 }
 
-.container.title{
+.CContainer.title{
     position: absolute;
     left: 26.39%;
     right: 55.21%;
@@ -40,7 +40,7 @@ h3{
 }
 
 
-.container.queries{
+.CContainer.queries{
     position: relative;
     width: 35%;
     height: 35%;

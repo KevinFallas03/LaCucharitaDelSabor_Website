@@ -1,12 +1,12 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="container title">  
+<div class="CContainer title">  
     <h1>¡Bienvenida Elvia!</h1>
     <h2>Página de Inicio</h2>
 </div>
 <!-- Productos más vendidos -->
-<div class="container carousel">
-    <h3 style="position: absolute; top:32%; left:54%;">Productos más vendidos</h3>
+<h3 style="position: absolute; top:31%; left:54%;">Productos más vendidos</h3>
+<div class="CContainer carousel" style="position: relative; top:35%">
     <carousel
         [cellsToShow]=3
         [loop]=true
@@ -14,7 +14,7 @@
     </carousel>
 </div>
 <!-- Cards con estadísticas -->
-<div class="container queries">
+<div class="CContainer queries">
     <mat-grid-list cols="2" rowHeight="3:2" [gutterSize]="'12px'">
         <mat-grid-tile style="border-radius: 0px 0px 30px 0px;">
             <h1>1</h1>

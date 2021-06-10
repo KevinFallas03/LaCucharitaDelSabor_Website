@@ -1,8 +1,56 @@
-<div class="container">
+<div class="Ccontainer">
 
     <div class="header">
         <img src="/assets/Images/cakeIcon.png" alt="sddsdsdds">
         <h1 class="title"> Productos destacados </h1>
     </div>
+
+
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+                <div class="carousel-item" *ngFor= "let productsList of productsLists ;let i=index" [ngClass]="{'active': i===0}" >
+                    <div class="cards-wrapper"  >
+                        <div class="card" *ngFor= "let product of productsList">
+                        <img src="/assets/Images/image.png" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> <b> {{product.name}} </b> </h5>
+                            <p class="card-text"> <b> ₡{{product.price}} </b> </p>
+                            <p class="card-text">Porciones: {{product.portions}}</p>
+                            <button class= "button text center" mat-raised-button (click)="addProduct(product)" > 
+                                <i class="fas fa-cart-plus"></i>
+                                Agregar 
+                            </button>
+                            <div class="InputField">
+                                <mat-form-field class="inputText" >
+                                    <mat-label>Cantidad</mat-label>
+                                    <input matInput 
+                                           [(ngModel)]="product.quant"
+                                           type="number" 
+                                           placeholder="Ej. 1" 
+                                           min="0"
+                                    >
+                                    <span matSuffix>px</span>
+                                </mat-form-field>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+        
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
     
 </div>

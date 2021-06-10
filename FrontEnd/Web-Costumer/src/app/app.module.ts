@@ -21,7 +21,8 @@ import { CarouselComponent } from './Components/carousel/carousel.component';
     SubscriptionComponent,
     DeliveryComponent,
     FooterComponent,
-    CarouselComponent
+    CarouselComponent,
+    
   ],
   imports: [
     MaterialModule,

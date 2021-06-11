@@ -1,0 +1,86 @@
+.container.title{
+    position: absolute;
+    left: 26.39%;
+    right: 55.21%;
+    top: 20.12%;
+}
+
+h1{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: right;
+    color: #352727;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    text-align: right;
+    color: #352727;
+}
+
+h3{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #352727;
+}
+
+/* cards */
+.content {
+    padding: 16px;
+    position: absolute;
+    top: 30%;
+    left: 22%
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.container.cards{
+    position: relative;
+    left: 22%;
+    top: 28%;
+}
+
+mat-grid-list {
+    background: lightblue;
+}
+
+.button.agregar {
+    display: flex;
+    flex-direction: column;
+    background-color:#ffffff00;
+    align-items: center;
+    border: none;
+}
+
+/* mat-icon:hover{
+    background-color:#9b9b9b7a;
+    border-radius: 50px
+}
+
+mat-icon::after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+} */
+
+.button.modificar{
+    width: 141px;
+    height: 31.29px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background: #352727;
+    border-radius: 20px;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #FFFFFF;
+}

@@ -1,0 +1,18 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+<div class="container title">  
+    <h1>¡Bienvenida Elvia!</h1>
+    <h2>Envíos</h2>
+</div>
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let location of locations" >
+        <div>
+            <img src="./assets/Images/Location.png" class="centerHorizontally">
+            
+            <div class="deliveryText">
+                <p>{{location.zona}}</p>
+                <P>{{location.precio}}</P>
+            </div>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

@@ -1,17 +1,15 @@
-
-carousel{
-    z-index: 9;
-    position: absolute;
-    top:36%;
-    left:27%;
-    width:70%
+mat-grid-list{
+    position: relative;
+    top: 30%;
+    left: 15%;
 }
 
-.CContainer.title{
+.container.title{
     position: absolute;
     left: 26.39%;
     right: 55.21%;
     top: 20.12%;
+    bottom: 73.54%;
 }
 
 h1{
@@ -39,24 +37,23 @@ h3{
     text-align: center;
 }
 
+.centerHorizontally {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-40%, -40%);
+    transform: translate(-50%, -50%);
+}
 
-.CContainer.queries{
+.deliveryText {
     position: relative;
-    width: 35%;
-    height: 35%;
-    left: 27%;
-    top: 62%;
+    text-align: center;
+    font-family: 'Trebuchet MS';
+    font-style:normal;
+    font-weight: normal;
+    font-size: 20px;
+    color: #352727;
+    padding-top: 30%;
 }
 
-mat-grid-tile {
-    position: absolute;
-    background: #D2B895;
-}
 
-table {
-    position: absolute;
-    width: 32%;
-    top: 65%;
-    left: 65%;
-    background-color: #ffffff00
-}

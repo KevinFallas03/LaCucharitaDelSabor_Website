@@ -13,33 +13,31 @@
 
                 <div class="carousel-item" *ngFor= "let productsList of productsLists ;let i=index" [ngClass]="{'active': i===0}" >
                     <div class="cards-wrapper"  >
-                        <div class="card" *ngFor= "let product of productsList">
-                        <img src="/assets/Images/image.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title"> <b> {{product.name}} </b> </h5>
-                            <p class="card-text"> <b> ₡{{product.price}} </b> </p>
-                            <p class="card-text">Porciones: {{product.portions}}</p>
-                            <button class= "button text center" mat-raised-button (click)="addProduct(product)" > 
-                                <i class="fas fa-cart-plus"></i>
-                                Agregar 
-                            </button>
-                            <div class="InputField">
-                                <mat-form-field class="inputText" >
-                                    <mat-label>Cantidad</mat-label>
-                                    <input matInput 
-                                           [(ngModel)]="product.quant"
-                                           type="number" 
-                                           placeholder="Ej. 1" 
-                                           min="0"
-                                    >
-                                    <span matSuffix>unid.</span>
-                                </mat-form-field>
+                        <div class="card-container" *ngFor= "let product of productsList">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title"> {{product.name}} </h2>
+                                    <p class="card-body"> 
+                                        Precio:  {{product.price}} <br> <br>
+                                        Porciones: {{product.portions}}
+                                    </p>
+                                    <button mat-raised-button class="button" (click)="addProduct(product)"> 
+                                        <i class="fas fa-cart-plus"></i>
+                                        Agregar  
+                                    </button>
+                                    <div class="input-container">
+                                        <span class="btn-next" (click)="add(product)"></span>
+                                        <span class="btn-prev" (click)="substract(product)"></span>
+                                        
+                                        <div class="text center">
+                                            {{product.quant}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
-        
-        </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>

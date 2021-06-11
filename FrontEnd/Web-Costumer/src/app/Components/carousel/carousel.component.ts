@@ -30,14 +30,53 @@ export class CarouselComponent implements OnInit {
   // FUNCIONES
 
   public loadProducts(): Product[][]{
-    let product:Product = {};
-    product._id = '1';
-    product.image = 'sasa';
-    product.name = 'Torta Chilena';
-    product.portions = 13;
-    product.price = 13000;
+    let product:Product = {
+      "_id" : '1',
+    "image" : 'sasa',
+    "name" : 'Torta Chilena',
+    "portions" : 13,
+    "price" : 13000,
+    "quant" : 0
+    };
 
-    return [[product,product],[product,product],[product]];
+    let product1:Product = {
+      "_id" : '1',
+    "image" : 'sasa',
+    "name" : 'Torta Chilena',
+    "portions" : 13,
+    "price" : 13000,
+    "quant" : 0
+    };
+
+    let product2:Product = {
+      "_id" : '1',
+    "image" : 'sasa',
+    "name" : 'Torta Chilena',
+    "portions" : 13,
+    "price" : 13000,
+    "quant" : 0
+    };
+
+    let product3:Product = {
+      "_id" : '1',
+    "image" : 'sasa',
+    "name" : 'Torta Chilena',
+    "portions" : 13,
+    "price" : 13000,
+    "quant" : 0
+    };
+
+    let product4:Product = {
+      "_id" : '1',
+    "image" : 'sasa',
+    "name" : 'Torta Chilena',
+    "portions" : 13,
+    "price" : 13000,
+    "quant" : 0
+    };
+    
+
+    return [[product,product1],[product2,product3],[product4]];
   }
 
   public addProduct(product: Product){
@@ -57,6 +96,27 @@ export class CarouselComponent implements OnInit {
     localStorage.setItem("cart",JSON.stringify(this.cart));
     console.log(this.cart);
   }
+
+  public add(product:Product): void {
+    if (product.quant){
+      product.quant = product.quant + 1;
+    }
+
+    else{
+      product.quant = 1
+    }
+  }
+
+  public substract(product:Product): void {
+    if (product.quant){
+      product.quant = product.quant - 1;
+    }
+
+    else{
+      product.quant = 0
+    }
+  }
+
 }
 
 

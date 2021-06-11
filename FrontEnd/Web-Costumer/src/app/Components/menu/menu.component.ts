@@ -9,13 +9,13 @@ import { Product } from 'src/app/Models/Product';
 })
 export class MenuComponent implements OnInit {
 
-  public productsLists : Product[];
+  public productList : Product[];
   public cart : Product[];
   public hidden : Boolean = false;
   public product : Product = {"quant":0};
 
   constructor() { 
-    this.productsLists = this.loadProducts();
+    this.productList = this.loadProducts();
     this.cart = this.retrieveData();
     
   }
@@ -35,6 +35,7 @@ export class MenuComponent implements OnInit {
     product.name = 'Torta Chilena';
     product.portions = 13;
     product.price = 13000;
+    product.quant = 0;
 
     return [product,product,product,product,product];
   }

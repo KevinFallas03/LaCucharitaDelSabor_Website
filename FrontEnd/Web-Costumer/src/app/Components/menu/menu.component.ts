@@ -12,6 +12,7 @@ export class MenuComponent implements OnInit {
   public productsLists : Product[];
   public cart : Product[];
   public hidden : Boolean = false;
+  public product : Product = {"quant":0};
 
   constructor() { 
     this.productsLists = this.loadProducts();
@@ -55,4 +56,27 @@ export class MenuComponent implements OnInit {
     localStorage.setItem("cart",JSON.stringify(this.cart));
     console.log(this.cart);
   }
+
+  public add(product:Product): void {
+    if (product.quant){
+      product.quant = product.quant + 1;
+    }
+
+    else{
+      product.quant = 1
+    }
+  }
+
+  public substract(product:Product): void {
+    if (product.quant){
+      product.quant = product.quant - 1;
+    }
+
+    else{
+      product.quant = 0
+    }
+  }
+
+
+  
 }

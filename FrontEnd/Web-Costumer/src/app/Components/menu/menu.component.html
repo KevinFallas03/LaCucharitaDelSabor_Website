@@ -1,10 +1,34 @@
 <div class="menuContainer">
-
+    <!--
     <div class="header">
         <img src="/assets/Images/cakeIcon2.png" alt="sddsdsdds">
         <h1 class="title"> Nuestros productos </h1>
     </div>
 
+    -->
+    <div class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <h2 class="card-title"> Something Awesome </h2>
+                <p class="card-body"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis dolor recusandae tenetur nihil inventore sed? </p>
+                <button mat-raised-button class="button" (click)="addProduct(product)"> 
+                    <i class="fas fa-cart-plus"></i>
+                    Agregar  
+                </button>
+                <div class="input-container">
+                    <span class="btn-next" (click)="add(product)"></span>
+                    <span class="btn-prev" (click)="substract(product)"></span>
+                    
+                    <div class="text center">
+                        {{product.quant}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
     
 
 </div>

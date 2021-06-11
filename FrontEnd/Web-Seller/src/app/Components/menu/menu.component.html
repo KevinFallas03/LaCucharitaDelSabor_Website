@@ -1,35 +1,45 @@
 <app-header></app-header>
 <app-navbar></app-navbar>
-<div class="container title">  
+<div class="welcome title">  
     <h1>¡Bienvenida Elvia!</h1>
     <h2>Menú de productos</h2>
 </div>
-<div style="position: relative; left:89%; top:20%;"> 
+<div style="position: relative; left:80%; top:20%; width: 10%;"> 
     <button mat-icon-button (click)="onCreate()">
         <mat-icon class="material-icons-outlined" style="font-size: 26px;">
             add_circle_outline
         </mat-icon>
     </button>
-    <div style="margin-left: -5px; margin-top: 0px;">
-        <h3>Añadir</h3>
-        <h3 style="position:relative; margin-top: -25px; margin-left: -35px;">nuevo producto</h3>
-    </div>
-      
+    <h3 style="margin-left:-43px;">Añadir producto</h3>
 </div>
-<div class="container cards">
-<mat-grid-list cols="3" rowHeight="2:3">
-    <mat-grid-tile *ngFor="let product of products" >
-        <mat-card class="example-card">
-            <img mat-card-image src={{product.image}} alt="Imagen del producto">
-            <mat-card-content>
-                <mat-card-title>{{ product.name }}</mat-card-title>
-                <p>Precio: {{ product.price }}</p>
-                <p>Porciones: {{ product.portions }}</p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button class="button modificar" (click)="onEdit()"><i class="fas fa-pencil-alt"></i> Modificar</button>
-            </mat-card-actions>
-          </mat-card>
-    </mat-grid-tile>
-</mat-grid-list>
+<div class="Ccontainer">
+    <div id="carouselExampleControls" class="carousel slide" style="padding:0" >
+        <div class="carousel-inner">
+            <div class="carousel-item" *ngFor= "let productsList of productsLists; let i=index" [ngClass]="{'active': i===0}">
+                <div class="cards-wrapper"  >
+                    <div class="card" *ngFor= "let product of productsList">
+                    <img [src]="product.image" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"> <b> {{product.name}} </b> </h5>
+                        <p class="card-text"> <b> ₡{{product.price}} </b> </p>
+                        <p class="card-text">Porciones: {{product.portions}}</p>
+                        <button class= "button text center" mat-raised-button (click)="onEdit(product)" > 
+                            <i class="fas fa-pencil-alt"></i>
+                            Modificar 
+                        </button>
+                    </div>    
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </div>
 </div>

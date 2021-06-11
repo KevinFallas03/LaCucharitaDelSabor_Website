@@ -76,7 +76,4 @@ export class MenuComponent implements OnInit {
       product.quant = 0
     }
   }
-
-
-  
 }

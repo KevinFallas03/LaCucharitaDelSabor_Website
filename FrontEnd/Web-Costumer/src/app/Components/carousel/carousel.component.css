@@ -59,7 +59,7 @@
 
 
 .carousel-inner {
-    padding: 1em;
+    padding: 2em;
 }
 
 
@@ -160,7 +160,7 @@
     --padding: 1.5rem;
     padding: var(--padding);
     background: linear-gradient(
-        hsl(0 0% 100% / 0.2),
+        hsl(0 0% 100% / 0),
         hsl(20 0% 100% / 0.5) 20%,
         hsl(0 0% 100% / 1)
 

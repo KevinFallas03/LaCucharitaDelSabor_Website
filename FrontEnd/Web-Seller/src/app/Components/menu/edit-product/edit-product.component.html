@@ -1,8 +1,9 @@
 <h1 style="text-align: center">Editar producto</h1>
 
-<div style="text-align: center">
+<div style="position: relative; left: 23%">
   <form>      
     <div>
+      <img [src]="image" height="200"><br><br>
       <input class="" type="file" name="image" (change)="selectImage($event)" />
     </div>
     <br>
@@ -12,13 +13,16 @@
     <div class="inputs-container">
         <input type="hidden" value="$key">
         <mat-form-field>
-            <input formControlName="name" matInput placeholder="Nombre del producto">
+          <h3 style="width:fit-content">Nombre</h3>  
+          <input class="" formControlName="name" placeholder="">
         </mat-form-field>
         <mat-form-field>
-            <input formControlName="price" matInput placeholder="Precio del producto">
+            <h3>Precio</h3>
+            <input formControlName="price" placeholder="">
         </mat-form-field>
         <mat-form-field>
-            <input formControlName="portions" matInput placeholder="Número de porciones">
+            <h3>Porciones</h3>
+            <input formControlName="portions" placeholder="">
         </mat-form-field>
     </div>
 </form>

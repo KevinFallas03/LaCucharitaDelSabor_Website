@@ -15,15 +15,18 @@ export class EditProductComponent implements OnInit {
     portions: new FormControl('')
   })
 
-  constructor() { }
+  constructor() { this.image = 'https://i.imgur.com/MjnbeUg.png' }
 
   ngOnInit(): void {
   }
   
   selectImage(event: any) {
     if (event.target.files.length > 0) {
-      const file = event.target.files[0];
-      this.image = file;
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]);
+      reader.onload=(e:any) => {
+        this.image = e.target.result;
+      }
     }
   }
 

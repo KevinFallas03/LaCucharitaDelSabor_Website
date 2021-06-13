@@ -48,3 +48,169 @@ h3{
     width: 88%;
     margin: auto;
 }
+
+/* CARDS */
+.card {
+    background-image: url("https://i.imgur.com/MjnbeUg.png");
+    margin-left: 40px;
+    margin-bottom: 15px;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+
+}
+
+@media(hover){
+    .card-content {
+        transform: translateY(65%);
+        transition: transform 500ms ease;
+    }
+
+    .card:hover .card-content,
+    .card:focus-within .card-content {
+        transform: translateY(0);
+        transition-delay: 500ms;
+    }
+
+    .card:focus-within .card-content {
+        transition-duration: 0ms;
+    }
+
+    .card-content > *:not(.card-title) {
+        opacity: 0;
+        transition: opacity 500ms linear;
+    }
+
+    
+    .card:hover .card-content > *:not(.card-title),
+    .card:focus-within .card-content > *:not(.card-title) {
+        opacity: 1;
+        transition-delay: 600ms;
+    }
+
+    .card-title::after {
+        transform: scaleX(0);
+    }
+
+    .input-container:hover{
+        border: 2px solid rgba(0,0,0, 1);
+    }
+
+    .input-container:hover .btn-next {
+        opacity: 1;
+        right: 10px;
+    }
+    .input-container:hover .btn-prev {
+        opacity: 1;
+        left: 10px;
+    }
+ 
+}
+
+.card {
+    color: #352727;
+    background-size: cover;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 500ms ease;
+}
+
+.card-body {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.card:hover,
+.card:focus-within {
+    transform: scale(1.05);
+}
+
+.card-content {
+    --padding: 1.5rem;
+    padding: var(--padding);
+    background: linear-gradient(
+        hsl(0 0% 100% / 0),
+        hsl(20 0% 100% / 0.5) 20%,
+        hsl(0 0% 100% / 1)
+
+    );
+}
+
+.card-title {
+    position: relative;
+    width: max-content;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+}
+
+.card-title::after {
+    bottom: -2px;
+    left: 0;
+    content: "";
+    position: absolute;
+    height: 4px;
+    left: calc(var(--padding) *-1);
+    width: calc(100% + var(--padding)) ;
+    background:#D2B895;
+    transform-origin: left;
+    transition: transform 500ms ease;
+}
+
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+    transform: scaleX(1);
+}
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #352727;
+    color: white;
+    padding: 0.5em 1.25em;
+    border-radius: 20px;
+}
+
+.button:hover,
+.button:focus {
+    background-color: white;
+    color: #352727;
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+
+.text {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+}
+
+@media (prefers-reduced-motion: reduce){
+    *,
+    *::before,
+    *::after{
+        animation-duration: 0.01ms
+        !important;
+        animation-iteration-count: 1
+        !important;
+        transition-duration: 0.01ms 
+        !important;
+        scroll-behavior: auto
+        !important;
+        transition-delay: 0ms
+        !important;
+    }
+
+}

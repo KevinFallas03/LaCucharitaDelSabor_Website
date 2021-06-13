@@ -1,5 +1,8 @@
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
+import { CartService } from '../../Services/cart-service.service';
+
 
 
 @Component({
@@ -14,10 +17,13 @@ export class CarouselComponent implements OnInit {
   public productsLists : Product[][];
   public cart : Product[];
   public hidden : Boolean = false;
+  public insertedSuccess : Boolean = false;
+  public insertedFail : Boolean = false;
 
-  constructor() { 
+
+  constructor(private cartService: CartService,) { 
     this.productsLists = this.loadProducts();
-    this.cart = this.retrieveData();
+    this.cart = this.cartService.get();
     
   }
 
@@ -79,22 +85,20 @@ export class CarouselComponent implements OnInit {
     return [[product,product1],[product2,product3],[product4]];
   }
 
-  public addProduct(product: Product){
-    this.cart.push(product);
-    this.storeData();
-  }
+  public addProduct(product: Product,id: string){
+    if (product.quant != undefined && product.quant > 0) {
+		this.cart = this.cartService.get();
+		this.cart.push(product);
+		this.cartService.set(this.cart);
+		this.insertedSuccess = true;
+    this.insertedFail = false;
+    }
 
-  public retrieveData(): []{
-    if(localStorage.getItem("cart"))
-      return JSON.parse(localStorage.getItem("cart") as string);
-
+    else{
+      this.insertedSuccess = false;
+      this.insertedFail = true;
+    }
       
-    return [];
-  }
-
-  public storeData(): void{
-    localStorage.setItem("cart",JSON.stringify(this.cart));
-    console.log(this.cart);
   }
 
   public add(product:Product): void {
@@ -116,6 +120,12 @@ export class CarouselComponent implements OnInit {
       product.quant = 0
     }
   }
+
+  close(){
+    this.insertedFail = this.insertedSuccess = false;
+  }
+
+  
 
 }
 

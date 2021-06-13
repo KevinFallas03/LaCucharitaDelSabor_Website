@@ -90,7 +90,7 @@
     background-image: url(/assets/Images/image.png);
     background-size: cover;
     padding: 10rem 0 0;
-    width: 60ch;
+    width: 70ch;
     border-radius: 20px;
     overflow: hidden;
 
@@ -226,6 +226,9 @@
 }
 
 
+.alert {
+    text-align: center;
+}
 
 
 @media (prefers-reduced-motion: reduce){

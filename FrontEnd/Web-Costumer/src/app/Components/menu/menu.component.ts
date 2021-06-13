@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
+import { CartService } from '../../Services/cart-service.service';
 
 
 @Component({
@@ -12,11 +13,12 @@ export class MenuComponent implements OnInit {
   public productList : Product[];
   public cart : Product[];
   public hidden : Boolean = false;
-  public product : Product = {"quant":0};
+  public insertedSuccess : Boolean = false;
+  public insertedFail : Boolean = false;
 
-  constructor() { 
+  constructor(private cartService: CartService) { 
     this.productList = this.loadProducts();
-    this.cart = this.retrieveData();
+    this.cart = this.cartService.get();
     
   }
 
@@ -41,22 +43,20 @@ export class MenuComponent implements OnInit {
   }
 
   public addProduct(product: Product){
-    this.cart.push(product);
-    this.storeData();
+    if (product.quant != undefined && product.quant > 0) {
+      this.cart = this.cartService.get();
+      this.cart.push(product);
+      this.cartService.set(this.cart);
+      this.insertedSuccess = true;
+      this.insertedFail = false;
+      }
+  
+      else{
+        this.insertedSuccess = false;
+        this.insertedFail = true;
+      }
   }
 
-  public retrieveData(): []{
-    if(localStorage.getItem("cart"))
-      return JSON.parse(localStorage.getItem("cart") as string);
-
-      
-    return [];
-  }
-
-  public storeData(): void{
-    localStorage.setItem("cart",JSON.stringify(this.cart));
-    console.log(this.cart);
-  }
 
   public add(product:Product): void {
     if (product.quant){
@@ -76,5 +76,9 @@ export class MenuComponent implements OnInit {
     else{
       product.quant = 0
     }
+  }
+
+  close(){
+    this.insertedFail = this.insertedSuccess = false;
   }
 }

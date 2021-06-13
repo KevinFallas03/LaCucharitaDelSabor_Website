@@ -4,10 +4,18 @@
 </div>
     
 
-
-
+<div class="alert alert-success" role="alert" *ngIf="insertedSuccess">
+    Producto agregado al carro de compras
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (close)="close()"></button>
+</div>
+  <div class="alert alert-danger" role="alert" *ngIf="insertedFail">
+    Debe ingresar la cantidad de producto a ordenar
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (close)="close()" ></button>
+  </div>
+  
 <mat-grid-list cols="3" >
     <mat-grid-tile *ngFor= "let product of productList">
+        
         <div class="card-container" >
             <div class="card">
                 <div class="card-content">

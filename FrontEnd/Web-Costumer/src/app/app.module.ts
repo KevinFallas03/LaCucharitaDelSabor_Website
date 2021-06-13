@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,6 +14,9 @@ import { DeliveryComponent } from './Components/delivery/delivery.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { MenuComponent } from './Components/menu/menu.component';
+
+//Services
+import { CartService } from './Services/cart-service.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,7 @@ import { MenuComponent } from './Components/menu/menu.component';
     BrowserAnimationsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

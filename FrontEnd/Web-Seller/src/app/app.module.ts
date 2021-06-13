@@ -27,6 +27,8 @@ import { UsuariosComponent } from './Components/usuarios/usuarios.component';
 // SERVICES MODULES
 import { AuthService } from './Services/AuthService/auth.service';
 import { CreateProductComponent } from './Components/menu/create-product/create-product.component';
+import { EditDeliveryComponent } from './Components/envios/edit-delivery/edit-delivery.component';
+import { CreateDeliveryComponent } from './Components/envios/create-delivery/create-delivery.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { CreateProductComponent } from './Components/menu/create-product/create-
     UsuariosComponent,
     EditProductComponent,
     CreateProductComponent,
+    EditDeliveryComponent,
+    CreateDeliveryComponent,
   ],
   entryComponents: [
     NotificationTrayComponent, 

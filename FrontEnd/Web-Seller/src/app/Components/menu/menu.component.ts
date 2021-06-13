@@ -14,11 +14,18 @@ export class MenuComponent implements OnInit {
 
   public productsLists : Product[][];
   public hidden : Boolean = false;
-
+  
   public products = [
     {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
     {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
     {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
+    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
+    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
+    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
+    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
+    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
+    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
+    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/MjnbeUg.png"}
   ];
 
   constructor(private dialog: MatDialog) {
@@ -26,6 +33,32 @@ export class MenuComponent implements OnInit {
    }
   
   ngOnInit(): void {
+  }
+
+  slideConfig = {
+    "slidesToShow": 3, 
+    "slidesToScroll": 3, 
+    "arrows":true,
+    prevArrow:"<button type='button' class='slick-prev pull-left' style='font-family: slick; font-size: 40px; line-height: 1; color: #90694A;'><i class='fa fa-angle-left' aria-hidden='true'></i></button>",
+    nextArrow:"<button type='button' class='slick-next pull-right' style='font-family: slick; font-size: 40px; line-height: 1; color: #90694A;'><i class='fa fa-angle-right' aria-hidden='true'></i></button>", 
+    "rows":3, 
+    "dots":true
+  };
+  
+  slickInit(e: any) {
+    console.log('slick initialized');
+  }
+    
+  breakpoint(e: any) {
+    console.log('breakpoint');
+  }
+    
+  afterChange(e: any) {
+    console.log('afterChange');
+  }
+    
+  beforeChange(e: any) {
+    console.log('beforeChange');
   }
 
   onCreate() {

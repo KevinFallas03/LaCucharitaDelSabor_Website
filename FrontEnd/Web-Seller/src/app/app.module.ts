@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IvyCarouselModule } from 'angular-responsive-carousel';
-
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -60,6 +60,7 @@ import { CreateProductComponent } from './Components/menu/create-product/create-
     FormsModule,
     IvyCarouselModule,
     ReactiveFormsModule,
+    SlickCarouselModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -13,33 +13,16 @@
     <h3 style="margin-left:-43px;">Añadir producto</h3>
 </div>
 <div class="Ccontainer">
-    <div id="carouselExampleControls" class="carousel slide" style="padding:0" >
-        <div class="carousel-inner">
-            <div class="carousel-item" *ngFor= "let productsList of productsLists; let i=index" [ngClass]="{'active': i===0}">
-                <div class="cards-wrapper"  >
-                    <div class="card" *ngFor= "let product of productsList">
-                    <img [src]="product.image" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"> <b> {{product.name}} </b> </h5>
-                        <p class="card-text"> <b> ₡{{product.price}} </b> </p>
-                        <p class="card-text">Porciones: {{product.portions}}</p>
-                        <button class= "button text center" mat-raised-button (click)="onEdit(product)" > 
-                            <i class="fas fa-pencil-alt"></i>
-                            Modificar 
-                        </button>
-                    </div>    
-                </div>
-            </div>
+    <ngx-slick-carousel class="carousel" style="position: relative; padding-top: 10px;"
+                        #slickModal="slick-carousel" 
+                        [config]="slideConfig" 
+                        (init)="slickInit($event)"
+                        (breakpoint)="breakpoint($event)"
+                        (afterChange)="afterChange($event)"
+                        (beforeChange)="beforeChange($event)">
+        <div ngxSlickItem *ngFor="let product of products" class="slide">
+              <img src="{{ product.image }}" alt="" width="100%">
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-        </div>
-    </div>
+    </ngx-slick-carousel>
 </div>
+

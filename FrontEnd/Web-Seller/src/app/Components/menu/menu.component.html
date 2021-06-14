@@ -30,8 +30,12 @@
                         Porciones: {{product.portions}}
                     </p>
                     <button mat-raised-button class="button" (click)="onEdit(product)"> 
-                        <i class="fas fa-cart-plus"></i>
+                        <i class="fas fa-pencil-alt"></i>
                         Modificar  
+                    </button>
+                    <button mat-raised-button class="button" style="margin-top: 8px;"(click)="onDelete(product)"> 
+                        <i class="fas fa-trash-alt"></i>
+                        Eliminar  
                     </button>
                 </div>
             </div>

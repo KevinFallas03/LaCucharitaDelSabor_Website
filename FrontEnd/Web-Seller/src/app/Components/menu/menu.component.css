@@ -1,7 +1,7 @@
 .Ccontainer {
     position: relative;
     width: 70%;
-    top: 28%;
+    top: 20%;
     left:22%;
 }
 
@@ -9,7 +9,7 @@
     position: absolute;
     left: 26.39%;
     right: 55.21%;
-    top: 20.12%;
+    top: 18%;
 }
 
 h1{
@@ -143,8 +143,8 @@ h3{
     width: max-content;
     font-family: 'Trebuchet MS';
     font-style: normal;
-    font-weight: normal;
-    font-size: 26px;
+    font-weight: 600;;
+    font-size: 24px;
 }
 
 .card-title::after {

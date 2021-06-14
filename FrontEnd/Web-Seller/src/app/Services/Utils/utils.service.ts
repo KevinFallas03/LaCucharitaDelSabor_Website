@@ -7,7 +7,7 @@ import { environment } from '../../../environments/environment';
 })
 export class UtilsService {
 
-  _apiUrl = environment.url + "/api/util/image";
+  _apiUrl = environment.url + "/api/util/image/upload";
 
   constructor(private _http: HttpClient) { }
 
@@ -15,8 +15,8 @@ export class UtilsService {
     return this._http.post<any>(this._apiUrl, imageData)
   }
 
-  getImage(id:any){
-    return this._http.get<any>(`${this._apiUrl}/${id}`)
+  getImage(image:any){
+    return this._http.get<any>(`${this._apiUrl}/${image}`)
   }
 
 }

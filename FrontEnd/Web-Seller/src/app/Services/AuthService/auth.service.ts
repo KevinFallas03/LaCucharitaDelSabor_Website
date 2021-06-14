@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { UserAuth } from '../../Models/userAuth';
+import { environment } from '../../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -88,7 +89,7 @@ export class AuthService {
   }
 
   public authenticateUser(userInfo: UserAuth): Observable<any> {
-    return this.httpClient.post('http://localhost:3000/api/userAuth/login', userInfo, {
+    return this.httpClient.post(`${environment.url}/api/userAuth/login`, userInfo, {
       headers: { 'Content-Type': 'application/json' },
     });
   }

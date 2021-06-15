@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import swal from 'sweetalert2';
+
+import { DeliveryService } from 'src/app/Services/Delivery/delivery.service';
+
+import { Delivery } from 'src/app/Models/Delivery'
 
 @Component({
   selector: 'app-create-delivery',
@@ -7,9 +14,51 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDeliveryComponent implements OnInit {
 
-  constructor() { }
+  form: FormGroup = new FormGroup({
+    location: new FormControl(),
+    price: new FormControl(),
+  });
+
+  delivery:Delivery = {
+    location: '',
+    price: 0
+  }
+
+  constructor(
+    public dialogRef: MatDialogRef<CreateDeliveryComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Delivery,
+    public deliveryService: DeliveryService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(){
+    
+    this.delivery.location = this.form.controls['location'].value;
+    this.delivery.price = this.form.controls['price'].value;
+    this.onSave();
+    this.dialogRef.close();
+  }
+
+  onSave(){
+    var deliveries;
+    this.form.reset();
+    this.deliveryService.postDelivery(this.delivery).subscribe(
+      data => {
+        swal.fire("Añadido", "El envio " + data.location + " se ha añadido.", 'success');
+      }
+    );
+    this.deliveryService.getAllDeliveries().subscribe(
+      data => deliveries = data
+    )
+    window.location.reload();
+  }
+
+  onClose(){
+    this.form.reset();
+    this.dialogRef.close();
+    window.location.reload();
   }
 
 }

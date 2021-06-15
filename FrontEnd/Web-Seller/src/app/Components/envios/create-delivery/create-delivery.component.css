@@ -1,0 +1,71 @@
+form.normal-form{
+    margin: 10px;
+}
+
+.inputs-container{
+    width: 100%;
+    padding: 5%;
+}
+
+.inputs-container > * {
+    width: 80%;
+}
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+input[type=text] {
+    /* position: relative;
+    padding-top: 5px;
+    padding-left: 25px;
+    width: 480px;
+    height: 50px; */
+    /* border: #000000;
+    border-radius: 20px; */
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-size: 18px;
+    /* color: #352727; */
+}
+
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #352727;
+    color: white;
+    padding: 0.5em 1.25em;
+    border-radius: 20px;
+}
+
+.button:hover,
+.button:focus {
+    background-color: white;
+    color: #352727;
+}
+
+.button-upload {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #352727;
+    color: white;
+    padding: 0.5em 1.25em;
+    border-radius: 20px;
+}
+
+.button-upload:hover,
+.button-upload:focus {
+    background-color: rgb(221, 221, 221);
+    color: #352727;
+    border-color: #352727;
+}

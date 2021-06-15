@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import swal from 'sweetalert2';
+
+import { DeliveryService } from 'src/app/Services/Delivery/delivery.service';
+
+import { Delivery } from 'src/app/Models/Delivery'
 
 @Component({
   selector: 'app-edit-delivery',
@@ -7,31 +13,61 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./edit-delivery.component.css']
 })
 export class EditDeliveryComponent implements OnInit {
-  image: any;
+  
   form: FormGroup = new FormGroup({
-    $key: new FormControl(null),
-    location: new FormControl(''),
-    price: new FormControl(''),
-  })
+    location: new FormControl(),
+    price: new FormControl(),
+  });
 
-  constructor() { }
+  delivery:Delivery = {
+    location: '',
+    price: 0
+  };
+
+  constructor(
+    public dialogRef: MatDialogRef<EditDeliveryComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Delivery,
+    public deliveryService: DeliveryService
+  ) { }
 
   ngOnInit(): void {
-  }
-
-  selectImage(event: any) {
-    if (event.target.files.length > 0) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]);
-      reader.onload=(e:any) => {
-        this.image = e.target.result;
-      }
-    }
+    this.initializeFormGroup(this.data);
   }
 
   onSubmit(){
-    const formData = new FormData();
-    formData.append('file', this.image);
+    this.delivery.location = this.form.controls['location'].value;
+    this.delivery.price = this.form.controls['price'].value;
+    console.log("Aqui 1");
+    this.onSave();
+    this.dialogRef.close();
+  }
+
+  onSave(){
+    var deliveries;
+    this.form.reset();
+    console.log(this.data._id);
+    this.deliveryService.findByIdAndUpdate(this.data._id, this.delivery).subscribe(
+     () => {
+        swal.fire("Editado", "La zona de envio se ha editado correctamente.", 'success');
+      }
+    );
+    this.deliveryService.getAllDeliveries().subscribe(
+      data => deliveries = data
+    )
+    window.location.reload();
+  }
+
+  initializeFormGroup(data: Delivery){
+    console.log(data);
+    this.form.setValue({
+      location: data.location,
+      price: data.price,
+    });
+  }
+
+  onClose(){
+    this.dialogRef.close();
+    window.location.reload();
   }
 
 }

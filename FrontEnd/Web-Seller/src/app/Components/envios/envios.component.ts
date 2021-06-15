@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditDeliveryComponent } from './edit-delivery/edit-delivery.component';
 import { CreateDeliveryComponent } from './create-delivery/create-delivery.component';
-import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import swal from 'sweetalert2';
+
+import { DeliveryService } from 'src/app/Services/Delivery/delivery.service'
 
 import { Delivery } from 'src/app/Models/Delivery'
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -15,16 +19,15 @@ export class EnviosComponent implements OnInit {
 
   //ATRIBUTOS
   public panelOpenState = false;
-  public deliveries = [
-    {"location":"Heredia, Barrio Limón","price":"1500"},
-    {"location":"Puntarenas, Guapiles","price":"3500"},
-    {"location":"Cartago, Cartago","price":"3500"},
-    {"location":"Guanacaste, Monteverde","price":"3500"}
-  ];
-
-  constructor(private dialog: MatDialog) { }
+  deliveries!: Delivery[];
+  
+  constructor(
+    private dialog: MatDialog,
+    public deliveryService: DeliveryService
+  ) { }
 
   ngOnInit(): void {
+    this.fillDeliveryList();
   }
 
   slideConfig = {
@@ -55,18 +58,38 @@ export class EnviosComponent implements OnInit {
 
   onCreate() {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     //dialogConfig.width = "60%";
-    //this.dialog.open(Create  Component, dialogConfig);
+    //this.dialog.open(CreateDeliveryComponent, dialogConfig);
+    const dialogRef = this.dialog.open(CreateDeliveryComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(() => { this.fillDeliveryList(); } );
   }
 
-  onEdit( ) {
+  onEdit(delivery: Delivery) {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    //dialogConfig.width = "60%";
+    dialogConfig.data = delivery;
     this.dialog.open(EditDeliveryComponent, dialogConfig);
+  }
+
+  onDelete(delivery: Delivery) {
+    this.deliveryService.deleteById(delivery._id).subscribe(
+      () => { 
+        swal.fire("Envio eliminado","",'success');
+      }
+    );
+    window.location.reload(); 
+  }
+
+  fillDeliveryList(){
+    this.deliveryService.getAllDeliveries().subscribe(
+      data => {
+        this.deliveries = data;
+      }
+    );
   }
 
 }

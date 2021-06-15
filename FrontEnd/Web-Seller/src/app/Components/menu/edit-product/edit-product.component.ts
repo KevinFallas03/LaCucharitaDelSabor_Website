@@ -100,12 +100,18 @@ export class EditProductComponent implements OnInit {
   }
 
   initializeFormGroup(data: Product){
+    console.log(data);
     this.form.setValue({
       name: data.name, // this.data.name
       price: data.price,
       portions: data.portions
     });
     this.imagePreview = environment.url+ "/api/util/image/" + data.image as string;
+  }
+
+  onClose(){
+    this.dialogRef.close();
+    window.location.reload();
   }
 
 

@@ -16,6 +16,7 @@ import { User } from 'src/app/Models/User';
 export class UsuariosComponent implements OnInit {
 
   // ATRIBUTOS
+  imagePath = "../../../assets/Images/";
   users!: User[];
 
   constructor(
@@ -64,6 +65,7 @@ export class UsuariosComponent implements OnInit {
   }
 
   onEdit(user: User) {
+    console.log(user);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -83,7 +85,7 @@ export class UsuariosComponent implements OnInit {
   fillUsersList() {
     this.userService.getAllUsers().subscribe(
       data => {
-        this.userService = data;
+        this.users = data;
       }
     );
   }

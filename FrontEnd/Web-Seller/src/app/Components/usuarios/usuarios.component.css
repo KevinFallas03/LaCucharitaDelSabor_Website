@@ -1,9 +1,15 @@
-.container.title{
+.Ccontainer {
+    position: relative;
+    width: 70%;
+    top: 25%;
+    left:22%;
+}
+
+.welcome.title{
     position: absolute;
     left: 26.39%;
     right: 55.21%;
-    top: 20.12%;
-    bottom: 73.54%;
+    top: 20%;
 }
 
 h1{
@@ -26,9 +32,7 @@ h3{
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-    left:50%;
     color: #352727;
-    text-align: center;
 }
 
 .button.agregar {
@@ -47,7 +51,7 @@ h3{
 /* CARDS */
 
 .card {
-    background-image: url(../../../assets/Images/Location.png);
+    /* background-image: url(../../../assets/Images/Location.png); */
     width: 90%;
     margin-left: 10px;
     margin-bottom: 15px;

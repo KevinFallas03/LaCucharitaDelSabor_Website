@@ -4,10 +4,9 @@ import { EditDeliveryComponent } from './edit-delivery/edit-delivery.component';
 import { CreateDeliveryComponent } from './create-delivery/create-delivery.component';
 import swal from 'sweetalert2';
 
-import { DeliveryService } from 'src/app/Services/Delivery/delivery.service'
+import { DeliveryService } from 'src/app/Services/Delivery/delivery.service';
 
-import { Delivery } from 'src/app/Models/Delivery'
-import { environment } from 'src/environments/environment';
+import { Delivery } from 'src/app/Models/Delivery';
 
 
 @Component({

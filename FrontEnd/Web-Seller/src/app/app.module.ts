@@ -29,6 +29,8 @@ import { AuthService } from './Services/AuthService/auth.service';
 import { CreateProductComponent } from './Components/menu/create-product/create-product.component';
 import { EditDeliveryComponent } from './Components/envios/edit-delivery/edit-delivery.component';
 import { CreateDeliveryComponent } from './Components/envios/create-delivery/create-delivery.component';
+import { EditUserComponent } from './Components/usuarios/edit-user/edit-user.component';
+import { CreateUserComponent } from './Components/usuarios/create-user/create-user.component';
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { CreateDeliveryComponent } from './Components/envios/create-delivery/cre
     CreateProductComponent,
     EditDeliveryComponent,
     CreateDeliveryComponent,
+    EditUserComponent,
+    CreateUserComponent,
   ],
   entryComponents: [
     NotificationTrayComponent, 

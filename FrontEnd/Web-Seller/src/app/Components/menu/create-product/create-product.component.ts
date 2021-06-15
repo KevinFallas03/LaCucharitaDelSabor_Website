@@ -6,7 +6,7 @@ import swal from 'sweetalert2';
 import { UtilsService } from 'src/app/Services/Utils/utils.service' 
 import { MenuService } from 'src/app/Services/Menu/menu.service'
 
-import { Product } from '../../../Models/Product'
+import { Product } from 'src/app/Models/Product'
 
 @Component({
   selector: 'app-create-product',
@@ -18,12 +18,12 @@ export class CreateProductComponent implements OnInit {
 
   imageData:FormData = new FormData();
   imagePreview: any;
-  imageResponse: any;
+
   form: FormGroup = new FormGroup({
     name: new FormControl(),
     price: new FormControl(),
     portions: new FormControl()
-  })
+  });
 
   product:Product = {
     name: '',
@@ -69,7 +69,6 @@ export class CreateProductComponent implements OnInit {
       }
     );
     this.dialogRef.close();
-    
   }
 
   onSave(){
@@ -87,6 +86,7 @@ export class CreateProductComponent implements OnInit {
   }
 
   onClose(){
+    this.form.reset();
     this.dialogRef.close();
     window.location.reload();
   }

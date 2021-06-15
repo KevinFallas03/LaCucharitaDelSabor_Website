@@ -7,6 +7,7 @@ import swal from 'sweetalert2';
 import { MenuService } from 'src/app/Services/Menu/menu.service'
 
 import { Product } from 'src/app/Models/Product';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,6 +17,7 @@ import { Product } from 'src/app/Models/Product';
 })
 export class MenuComponent implements OnInit {
   
+  apiUrl = environment.url + "/api/util/image/";
   products!: Product[];
 
   constructor(
@@ -58,7 +60,7 @@ export class MenuComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     //dialogConfig.width = "60%";
-    this.dialog.open(CreateProductComponent, dialogConfig);
+    //this.dialog.open(CreateProductComponent, dialogConfig);
     const dialogRef = this.dialog.open(CreateProductComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(() => { this.fillProductList(); } );
@@ -67,10 +69,9 @@ export class MenuComponent implements OnInit {
 
   onEdit(product: Product) {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.data = product;
-    //dialogConfig.width = "60%";
     this.dialog.open(EditProductComponent, dialogConfig);
   }
 
@@ -90,6 +91,11 @@ export class MenuComponent implements OnInit {
           this.products = data;
         }
       );
+  }
+
+  getImage(product: Product) {
+    let url = "url(" + this.apiUrl + "/api/util/image/" + product.image + ")"as string;
+    return url;
   }
 
 }

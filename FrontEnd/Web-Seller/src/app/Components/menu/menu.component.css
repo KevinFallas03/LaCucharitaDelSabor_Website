@@ -50,14 +50,24 @@ h3{
 }
 
 /* CARDS */
-.card {
+/* .card {
     background-image: url("https://i.imgur.com/MjnbeUg.png");
-    margin-left: 40px;
+    
+
+} */
+
+.card {
+    width: 90%;
+    margin-left: 10px;
     margin-bottom: 15px;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
-
+    color: #352727;
+    background-size: cover;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 500ms ease;
 }
 
 @media(hover){
@@ -107,12 +117,13 @@ h3{
  
 }
 
-.card {
-    color: #352727;
-    background-size: cover;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 500ms ease;
+.card-title {
+    position: relative;
+    width: max-content;
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 600;;
+    font-size: 24px;
 }
 
 .card-body {
@@ -136,15 +147,6 @@ h3{
         hsl(0 0% 100% / 1)
 
     );
-}
-
-.card-title {
-    position: relative;
-    width: max-content;
-    font-family: 'Trebuchet MS';
-    font-style: normal;
-    font-weight: 600;;
-    font-size: 24px;
 }
 
 .card-title::after {

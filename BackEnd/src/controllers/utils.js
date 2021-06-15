@@ -13,7 +13,6 @@ const encode64 = (path) => {
 };
 
 utilController.uploadImage = async (req, res) => {
-  console.log("holaaa");
     try {
       const file = req.file;
       if (!file) {

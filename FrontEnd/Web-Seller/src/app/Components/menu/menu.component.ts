@@ -2,8 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { CreateProductComponent } from './create-product/create-product.component';
+import swal from 'sweetalert2';
+
+import { MenuService } from 'src/app/Services/Menu/menu.service'
 
 import { Product } from 'src/app/Models/Product';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -13,24 +17,16 @@ import { Product } from 'src/app/Models/Product';
 })
 export class MenuComponent implements OnInit {
   
-  public products = [
-    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Prestiño",price:5000,portions:5,image:"https://i.imgur.com/6ybxzES.png"},
-    {name:"Tiramisú",price:14000,portions:16,image:"https://i.imgur.com/MjnbeUg.png"}
-    
-  ];
+  apiUrl = environment.url + "/api/util/image/";
+  products!: Product[];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(
+    private dialog: MatDialog,
+    public menuService: MenuService
+  ) { }
   
   ngOnInit(): void {
+    this.fillProductList();
   }
 
   slideConfig = {
@@ -61,18 +57,45 @@ export class MenuComponent implements OnInit {
 
   onCreate() {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     //dialogConfig.width = "60%";
-    this.dialog.open(CreateProductComponent, dialogConfig);
+    //this.dialog.open(CreateProductComponent, dialogConfig);
+    const dialogRef = this.dialog.open(CreateProductComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(() => { this.fillProductList(); } );
+    
   }
 
   onEdit(product: Product) {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    //dialogConfig.width = "60%";
+    dialogConfig.data = product;
     this.dialog.open(EditProductComponent, dialogConfig);
+  }
+
+  onDelete(product: Product) {
+    console.log(product._id);
+    this.menuService.deleteById(product._id).subscribe(
+      () => { 
+        swal.fire("Producto eliminado","",'success');
+      }
+    );
+    window.location.reload(); 
+  }
+
+  fillProductList(){
+    this.menuService.getAllProducts().subscribe(
+        data => {
+          this.products = data;
+        }
+      );
+  }
+
+  getImage(product: Product) {
+    let url = "url(" + this.apiUrl + "/api/util/image/" + product.image + ")"as string;
+    return url;
   }
 
 }

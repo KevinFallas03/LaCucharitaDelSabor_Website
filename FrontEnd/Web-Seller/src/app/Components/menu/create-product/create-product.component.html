@@ -1,27 +1,36 @@
 <h1 style="text-align: center">Crear producto</h1>
 
-<div style="text-align: center">
-  <form>      
-    <div>
-      <input class="" type="file" name="image" (change)="selectImage($event)" />
-    </div>
-    <br>
-  </form>
-</div>
-<form [formGroup]="form" class="normal-form"> 
+<div *ngIf="imagePreview">
+  <img [src]="imagePreview" [alt]="form.value.name" /> <br>
+</div><br>
+<label  class="button-upload">
+  <input (change)="onFileSelect($event)" type="file"/>
+  <i class="fas fa-upload"></i>
+  Subir imagen
+</label><br>
+<form [formGroup]="form" (submit)="onSubmit()"> 
     <div class="inputs-container">
-        <input type="hidden" value="$key">
-        <mat-form-field>
-            <input formControlName="name" matInput placeholder="Nombre del producto">
-        </mat-form-field>
-        <mat-form-field>
-            <input formControlName="price" matInput placeholder="Precio del producto">
-        </mat-form-field>
-        <mat-form-field>
-            <input formControlName="portions" matInput placeholder="Número de porciones">
-        </mat-form-field>
+        <div>
+          <label>Nombre</label>
+          <input type="text" formControlName="name" placeholder="">
+        </div><br>
+        <div>
+          <label>Precio</label>
+          <input type="text" formControlName="price" placeholder="">
+        </div><br>
+        <div>
+          <label>Porciones</label>
+          <input type="text" formControlName="portions" placeholder="">
+        </div><br>
+    </div>
+    <div>
+      <button mat-raised-button class="button" (click)="onClose()">
+        <i class="fas fa-arrow-left"></i>
+        Regresar 
+      </button>
+      <button mat-raised-button class="button" style="left: 15px;" type="submit">
+        <i class="fas fa-save"></i>
+        Guardar
+      </button>
     </div>
 </form>
-<div>
-    <button type="submit" (click)="onSubmit()">Guardar</button>
-</div>

@@ -38,8 +38,8 @@ userController.createUser = async (req,res) => {
 
 userController.updateUser = async (req,res) => {
     try{
-        const updatedProduct = await Product.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
-        res.json(updatedProduct);
+        const updatedUser = await User.findOneAndUpdate({_id: req.params.id}, req.body, {new: true})
+        res.json(updatedUser);
     } catch (error) {
         res.json({message: error});
     }
@@ -47,7 +47,7 @@ userController.updateUser = async (req,res) => {
 
 userController.deleteUser = async (req,res) => {
     try {
-        const removedUser= await UserAuth.deleteOne({email: req.params.email});
+        const removedUser= await User.findOneAndDelete({_id: req.params.id});
         res.status(200).json(removedUser);
     } catch (error) {
         res.status(400).json({Error: "Something went wrong"});

@@ -21,8 +21,12 @@ export class MenuService {
     );
   }
 
-  findByIdAndUpdate(id: any, updatedTemplate: any){
-    return this._http.put(this._apiUrl+'/'+id, updatedTemplate);
+  postProduct(product: any){
+    return this._http.post<any>(this._apiUrl, product)
+  }
+
+  findByIdAndUpdate(id: any, updatedProduct: any){
+    return this._http.put(this._apiUrl+'/'+id, updatedProduct);
   }
 
   deleteById(id: any){

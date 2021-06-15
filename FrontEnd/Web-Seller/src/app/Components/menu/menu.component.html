@@ -21,8 +21,7 @@
                         (afterChange)="afterChange($event)"
                         (beforeChange)="beforeChange($event)">
         <div ngxSlickItem *ngFor="let product of products" class="slide">
-              <!-- <img src="{{ product.image }}" alt="" width="100%"> -->
-              <div class="card">
+              <div class="card" [ngStyle]="{'background-image': 'url('+ apiUrl + product.image + ')', 'background-repeat': 'no-repeat', 'background-size': '100% 100%'}">
                 <div class="card-content">
                     <h2 class="card-title"> {{product.name}} </h2>
                     <p class="card-body"> 
@@ -30,8 +29,12 @@
                         Porciones: {{product.portions}}
                     </p>
                     <button mat-raised-button class="button" (click)="onEdit(product)"> 
-                        <i class="fas fa-cart-plus"></i>
+                        <i class="fas fa-pencil-alt"></i>
                         Modificar  
+                    </button>
+                    <button mat-raised-button class="button" style="margin-top: 8px;"(click)="onDelete(product)"> 
+                        <i class="fas fa-trash-alt"></i>
+                        Eliminar  
                     </button>
                 </div>
             </div>

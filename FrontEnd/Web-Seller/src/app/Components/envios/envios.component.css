@@ -49,13 +49,20 @@ h3{
 }
 
 /* CARDS */
+
 .card {
     background-image: url(../../../assets/Images/Location.png);
-    margin-left: 40px;
+    width: 90%;
+    margin-left: 10px;
     margin-bottom: 15px;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
     border: none;
     border-radius: 0;
+    color: #352727;
+    background-size: cover;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 500ms ease;
 }
 
 @media(hover){
@@ -103,14 +110,6 @@ h3{
         left: 10px;
     }
  
-}
-
-.card {
-    color: #352727;
-    background-size: cover;
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform 500ms ease;
 }
 
 .card-body {

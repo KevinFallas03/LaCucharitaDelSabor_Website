@@ -1,1 +1,28 @@
-<p>create-delivery works!</p>
+<h1 style="text-align: center">Añadir envio</h1>
+
+<div>
+    <img style="position: relative; left: 100%" src="../../../assets/Images/Location.png" alt="Imagen ilustrativa" /> <br>
+</div><br>
+
+<form [formGroup]="form" (submit)="onSubmit()"> 
+    <div class="inputs-container">
+        <div>
+          <label>Lugar</label>
+          <input type="text" formControlName="location" placeholder="">
+        </div><br>
+        <div>
+          <label>Precio</label>
+          <input type="text" formControlName="price" placeholder="">
+        </div><br>
+    </div>
+    <div>
+      <button mat-raised-button class="button" (click)="onClose()">
+        <i class="fas fa-arrow-left"></i>
+        Regresar 
+      </button>
+      <button mat-raised-button class="button" style="left: 15px;" type="submit">
+        <i class="fas fa-save"></i>
+        Guardar
+      </button>
+    </div>
+</form>

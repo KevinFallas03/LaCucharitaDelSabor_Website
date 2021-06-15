@@ -1,26 +1,36 @@
 <h1 style="text-align: center">Crear producto</h1>
 
-
+<div *ngIf="imagePreview">
+  <img [src]="imagePreview" [alt]="form.value.name" /> <br>
+</div><br>
+<label  class="button-upload">
+  <input (change)="onFileSelect($event)" type="file"/>
+  <i class="fas fa-upload"></i>
+  Subir imagen
+</label><br>
 <form [formGroup]="form" (submit)="onSubmit()"> 
     <div class="inputs-container">
-        <div *ngIf="imagePreview">
-          <img [src]="imagePreview" [alt]="form.value.name" /> <br>
-        </div>
         <div>
-          <input (change)="onFileSelect($event)" type="file" />
+          <label>Nombre</label>
+          <input formControlName="name" placeholder="">
         </div><br>
         <div>
-            <input formControlName="name" placeholder="Nombre del producto">
+          <label>Precio</label>
+          <input formControlName="price" placeholder="">
         </div><br>
         <div>
-            <input formControlName="price" placeholder="Precio del producto">
-        </div><br>
-        <div>
-            <input formControlName="portions" placeholder="Número de porciones">
+          <label>Porciones</label>
+          <input formControlName="portions" placeholder="">
         </div><br>
     </div>
     <div>
-      <button> Cancelar </button>
-      <button type="submit">Guardar</button>
+      <button mat-raised-button class="button" (click)="onClose()">
+        <i class="fas fa-arrow-left"></i>
+        Regresar 
+      </button>
+      <button mat-raised-button class="button" style="left: 15px;" type="submit">
+        <i class="fas fa-save"></i>
+        Guardar
+      </button>
     </div>
 </form>

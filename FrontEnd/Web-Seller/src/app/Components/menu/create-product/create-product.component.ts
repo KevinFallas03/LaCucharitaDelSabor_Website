@@ -40,6 +40,7 @@ export class CreateProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.imagePreview = "assets/Images/Product D.png"
   }
 
   onFileSelect(event: any) {
@@ -82,6 +83,11 @@ export class CreateProductComponent implements OnInit {
     this.menuService.getAllProducts().subscribe(
       data => products = data
     )
+    window.location.reload();
+  }
+
+  onClose(){
+    this.dialogRef.close();
     window.location.reload();
   }
 

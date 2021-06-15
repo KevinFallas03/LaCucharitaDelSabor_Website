@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
 
   onCreate() {
     const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     //dialogConfig.width = "60%";
     this.dialog.open(CreateProductComponent, dialogConfig);

@@ -17,6 +17,7 @@ import { MenuComponent } from './Components/menu/menu.component';
 
 //Services
 import { CartService } from './Services/cart-service.service';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CartService } from './Services/cart-service.service';
     FooterComponent,
     CarouselComponent,
     MenuComponent,
+    ShoppingCartComponent,
     
   ],
   imports: [

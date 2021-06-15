@@ -1,0 +1,65 @@
+<!-- Header -->
+<div class="header title">
+    <i class="fas fa-shopping-cart"></i>
+    Tu carrito de órdenes
+</div>
+
+<!-- Titulos -->
+<div class="product-headers text">
+    <p style="text-align:left;">
+        Producto
+        <span style="float:right;">
+            Costo
+        </span>
+    </p>
+</div>
+
+<!-- Productos -->
+
+<div class="product-holder">
+    <div class="empty-cart" *ngIf= "!this.cart.length">
+        <img src="/assets/Images/empty-cart.png" class="center">
+        <h1 class="title bottom-center "> Tu carrito está vacío </h1>
+    </div>
+    <div class="product" *ngFor= "let product of this.cart" >
+        <div class="image-container"></div>
+        <div class="info-container">
+            <h1 class="product-title"> {{product.name}} </h1>
+            <p class="text" style="text-align:left;">
+                <b>Porciones: </b> {{product.portions}} <br>
+                <b>Nota: </b>
+                <span style="float:right;">
+                    <b> ₡ {{this.getCost(product)}} </b> 
+                </span>
+            </p>
+
+            <div class="input-container">
+                <span class="btn-next" (click)="add(product)"></span>
+                <span class="btn-prev" (click)="substract(product)"></span>
+                
+                <div class="text center">
+                    {{product.quant}}
+                </div>
+            </div>
+            <button mat-button color="warn" class="delete-button" (click)="deleteProduct(product)">Eliminar</button>
+        </div>
+        
+    </div>
+    
+</div>
+
+<!-- Footer -->
+<div class="footer">
+    <div>
+        <mat-label class="text">Agrega una nota a la orden:</mat-label>
+        <form>
+            <mat-form-field class="product-note">
+              <textarea matInput class="input text"></textarea>
+            </mat-form-field>
+          </form>
+          <span class="total text">
+            <b> Subtotal: ₡ {{getTotal()}} </b> 
+        </span>
+    </div>
+    <button mat-raised-button class="button text"  > Finalizar Pedido </button>
+</div>

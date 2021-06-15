@@ -27,7 +27,7 @@
         </div>
 
         <div class="grid-child ">
-            <button  class="Cbutton text"  mat-raised-button matBadge="{{this.shoppingCart.length}}" matBadgeColor="warn" >
+            <button  class="Cbutton text"  mat-raised-button matBadge="{{this.shoppingCart.length}}" matBadgeColor="warn" (click)="openShoppingCart()" >
                 <i class="fas fa-shopping-cart"></i>
                 Tu carro
             </button>

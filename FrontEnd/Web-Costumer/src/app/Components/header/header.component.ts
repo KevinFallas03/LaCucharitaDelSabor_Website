@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
 import { CartService } from '../../Services/cart-service.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ShoppingCartComponent } from '../shopping-cart/shopping-cart.component';
+
 
 
 @Component({
@@ -12,11 +15,22 @@ export class HeaderComponent implements OnInit {
 
 
   //Atributos
-  constructor(private cartService : CartService) { 
+  hidden = false;
+
+
+  constructor(private cartService : CartService,public dialog: MatDialog) { 
   }
 
   ngOnInit(): void {
     
+  }
+
+  openShoppingCart() {
+      this.hidden = !this.hidden;
+      this.dialog.open(ShoppingCartComponent,{
+      width: '75%',
+      height: 'fit-content',
+    });
   }
 
   get shoppingCart(): Product[] {

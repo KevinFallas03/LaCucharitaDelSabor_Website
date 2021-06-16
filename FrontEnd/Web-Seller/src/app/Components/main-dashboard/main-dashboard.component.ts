@@ -27,11 +27,11 @@ export class MainDashboardComponent implements OnInit {
   ];
 
   images = [
-    {path: 'https://i.imgur.com/6MS7V8L.png'},
-    {path: 'https://i.imgur.com/AWghc3b.png'},
-    {path: 'https://i.imgur.com/6MS7V8L.png'},
-    {path: 'https://i.imgur.com/AWghc3b.png'},
-    {path: 'https://i.imgur.com/6MS7V8L.png'},
+    {path: 'http://localhost:3000/api/util/image/Torta Chilena-16:5:2021-18:28:18.png'},
+    {path: 'http://localhost:3000/api/util/image/Prestiño-16:5:2021-18:29:3.png'},
+    {path: 'http://localhost:3000/api/util/image/Tres leches-16:5:2021-18:29:36.png'},
+    {path: 'http://localhost:3000/api/util/image/Pastelillos-16:5:2021-18:30:20.png'},
+    {path: 'http://localhost:3000/api/util/image/Tiramisú-16:5:2021-18:30:52.png'},
   ];
 
   tempCustomer = []

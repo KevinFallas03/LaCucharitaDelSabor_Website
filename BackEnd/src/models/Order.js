@@ -90,8 +90,13 @@ const deliveryInfoSchema = new Schema(
             type: String, 
             required: true 
         },
+        totalAmount: {
+            type: Number,
+            required: true
+        },
         finished: {
             type: Boolean,
+            default: false,
             required: true
         }
     },

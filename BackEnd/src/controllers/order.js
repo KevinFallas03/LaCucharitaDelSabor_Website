@@ -43,6 +43,7 @@ orderController.createOrder = async (req,res) => {
         orderInfo: req.body.orderInfo,
         deliveryInfo: req.body.deliveryInfo,
         orderNote: req.body.orderNote,
+        totalAmount: req.body.totalAmount,
         finished: req.body.finished,
     });
     try{

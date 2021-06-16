@@ -95,21 +95,16 @@ export class EditProductComponent implements OnInit {
   }
 
   onSave(){
-    // var products;
     this.form.reset();
     console.log(this.data._id);
     this.menuService.findByIdAndUpdate(this.data._id, this.product).subscribe(
      () => {
-        swal.fire("Editado", "El producto se ha editado correctamente.", 'success');
+        swal.fire("Editado", "El producto se ha editado correctamente.", 'success').then(function() {
+          window.location.reload();
+        });
       }
     );
-    // this.menuService.getAllProducts().subscribe(
-    //   data => products = data
-    // )
-    window.location.reload();
   }
-
-  
 
   onClose(){
     this.dialogRef.close();

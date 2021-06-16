@@ -80,10 +80,11 @@ export class MenuComponent implements OnInit {
     console.log(product._id);
     this.menuService.deleteById(product._id).subscribe(
       () => { 
-        swal.fire("Producto eliminado","",'success');
+        swal.fire("Producto eliminado","",'success').then(function() {
+          window.location.reload();
+        });
       }
     );
-    window.location.reload(); 
   }
 
   fillProductList(){

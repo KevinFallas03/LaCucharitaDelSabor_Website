@@ -72,17 +72,19 @@ export class CreateProductComponent implements OnInit {
   }
 
   onSave(){
-    var products;
+
     this.form.reset();
     this.menuService.postProduct(this.product).subscribe(
       data => {
-        swal.fire("Añadido", "El producto " + data.name+" se ha añadido.", 'success');
+        swal.fire("Añadido", "El producto " + data.name+" se ha añadido.", 'success').then(function() {
+          window.location.reload();
+        });
       }
     );
     this.menuService.getAllProducts().subscribe(
-      data => products = data
-    )
-    window.location.reload();
+      () => {console.log("actualizando productos")}
+    );
+    
   }
 
   onClose(){

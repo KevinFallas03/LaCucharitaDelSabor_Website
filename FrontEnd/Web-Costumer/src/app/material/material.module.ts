@@ -7,7 +7,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatBadgeModule } from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge'
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+
 
 
 
@@ -21,6 +24,8 @@ const MaterialComponents = [
   MatGridListModule,
   MatDialogModule,
   MatBadgeModule,
+  MatOptionModule,
+  MatSelectModule
   
 ];
 

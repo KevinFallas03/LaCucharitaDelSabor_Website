@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Delivery } from 'src/app/Models/Delivery';
+import { environment } from '../../../environments/environment';
+import { DeliveryService } from 'src/app/Services/delivery.service';
 
 @Component({
   selector: 'app-delivery',
@@ -10,13 +13,21 @@ export class DeliveryComponent implements OnInit {
 
   //ATRIBUTOS
   public panelOpenState = false;
-  public locations = [{"zona":"Heredia, Barrio Limón","precio":"1500"},{"zona":"Puntarenas, Guapiles","precio":"3500"},{"zona":"Cartago, Cartago","precio":"3500"},{"zona":"Guanacaste, Monteverde","precio":"3500"}];
+  public locations : Delivery[]  = [] ;
   public location = '';
   public email = '';
 
-  constructor() { }
+  constructor(private deliveryService : DeliveryService) { 
+    this.loadDelivery();
+  }
 
   ngOnInit(): void {
+  }
+
+  async loadDelivery(){
+    let deliveries : Delivery[] = [];
+    deliveries = await this.deliveryService.getAllDeliveries();
+    this.locations = deliveries;    
   }
 
   openPanel(){

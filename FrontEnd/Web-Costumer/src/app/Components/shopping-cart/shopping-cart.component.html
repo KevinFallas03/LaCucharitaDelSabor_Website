@@ -36,8 +36,8 @@
         <div class="info-container">
             <h1 class="product-title"> {{product.name}} </h1>
             <p class="text" style="text-align:left;">
-                <b>Porciones: </b> {{product.portions}} <br>
-                <b>Nota: </b>
+                <b>Porciones: </b> {{product.portions}} <br> <br>
+                <b>Cantidad: </b>
                 <span style="float:right;">
                     <b> ₡ {{this.getCost(product)}} </b> 
                 </span>
@@ -62,14 +62,51 @@
 <div class="footer">
     <div>
         <mat-label class="text">Agrega una nota a la orden:</mat-label>
+        
         <form>
             <mat-form-field class="product-note">
-              <textarea matInput class="input text"></textarea>
+              <textarea matInput class="input text" [(ngModel)]="this.orderNote" name="note" ></textarea>
             </mat-form-field>
-          </form>
-          <span class="total text">
+
+            <div class="grid">
+
+                <mat-form-field class="email-input">
+                    <mat-label>Correo electrónico</mat-label>
+                    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="this.email" name="email">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    Ingrese un correo electrónico válido
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                    El correo es <strong>necesario</strong> para continuar
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="name-input">
+                    <mat-label>Nombre</mat-label>
+                    <input type="text" matInput [(ngModel)]="this.name" name="name">
+                </mat-form-field>
+
+                <mat-form-field class="phone-input" >
+                    <mat-label>Télefono</mat-label>
+                    <input type="number" matInput [(ngModel)]="this.phone" name="phone">
+                </mat-form-field>
+                
+                <mat-form-field class="delivery-input input-text" appearance="fill">
+                    <mat-label>Zona de Envío</mat-label>
+                    <mat-select [(value)]="selectedDelivery">
+                        <mat-option *ngFor="let delivery of deliveriesList" [value]="delivery.location">
+                            {{delivery.location}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </form>
+        
+
+        <span class="total text">
             <b> Subtotal: ₡ {{getTotal()}} </b> 
         </span>
+
     </div>
     <button mat-raised-button class="button text" (click)="order()" > Finalizar Pedido </button>
 </div>

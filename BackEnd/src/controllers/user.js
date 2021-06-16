@@ -12,7 +12,7 @@ userController.getAllUsers = async (req, res) => {
 
 userController.getUser = async (req, res) => {
     try{
-        const user = await User.find({_id: req.params.id});
+        const user = await User.find({email: req.params.email});
         res.json(user);
     }catch (error){
         res.json({message: error})

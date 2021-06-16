@@ -4,10 +4,9 @@ const router = express.Router();
 const orderController = require("../controllers/order");
 
 router.get("/", orderController.getAllOrders);
-router.get("/:id", orderController.getSingleOrder)
+router.get("/getSingle/:id", orderController.getSingleOrder);
 router.get("/completed", orderController.getAllCompleteOrders);
 router.get("/pending", orderController.getAllPendingOrders);
-
 
 router.post("/", orderController.createOrder);
  

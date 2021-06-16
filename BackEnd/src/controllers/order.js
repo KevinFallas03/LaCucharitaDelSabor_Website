@@ -3,7 +3,7 @@ const orderController = {};
 
 orderController.getAllCompleteOrders = async (req,res) => {
     try{
-        const orders = await Order.find({finish: true});
+        const orders = await Order.find({'finished': true});
         res.json(orders);
     }catch (error){
         res.json({message: error})
@@ -12,7 +12,7 @@ orderController.getAllCompleteOrders = async (req,res) => {
 
 orderController.getAllPendingOrders = async (req,res) => {
     try{
-        const orders = await Order.find({finish: false});
+        const orders = await Order.find({'finished': false});
         res.json(orders);
     }catch (error){
         res.json({message: error})
@@ -30,7 +30,7 @@ orderController.getAllOrders = async (req,res) => {
 
 orderController.getSingleOrder = async (req,res) => {
     try{
-        const updatedOrder = await Order.findOneAndUpdate({_id: req.params.id})
+        const updatedOrder = await Order.find({_id: req.params.id})
         res.json(updatedOrder);
     } catch (error) {
         res.json({message: error});

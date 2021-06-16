@@ -20,6 +20,8 @@ app.use("/api/product",require("./routes/product"));
 app.use("/api/user",require("./routes/user"));
 app.use("/api/userAuth",require("./routes/userAuth"));
 app.use("/api/util",require("./routes/utils"));
+app.use("/api/dashboard",require("./routes/dashboard"));
+
 
 // Example : later can be User, Product, ...
 // Tested from Postman with GET `http://localhost:3000/api/example, ....

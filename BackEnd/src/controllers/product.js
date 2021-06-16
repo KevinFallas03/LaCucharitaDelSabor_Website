@@ -21,6 +21,16 @@ productController.getProduct = async (req,res) => {
     }
 }
 
+//GET PRODUCT IMAGE BY NAME
+productController.getProductImageByName = async (req,res) => {
+    try{
+        const products = await Product.findOne({name: req.body.name}, {image:1});
+        res.json(products);
+    }catch (error){
+        res.json({message: error})
+    }
+}
+
 productController.createProduct = async (req,res) => {
     const product = new Product({
         name: req.body.name,

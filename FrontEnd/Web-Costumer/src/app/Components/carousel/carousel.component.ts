@@ -2,6 +2,8 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
 import { CartService } from '../../Services/cart-service.service';
+import { MenuService } from '../../Services/menu.service';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -13,16 +15,17 @@ import { CartService } from '../../Services/cart-service.service';
 export class CarouselComponent implements OnInit {
 
   //ATRIBUTOS
-
-  public productsLists : Product[][];
+  apiUrl = environment.url + "/api/util/image/";
+  public productsLists : Product[][] = [];
   public cart : Product[];
   public hidden : Boolean = false;
   public insertedSuccess : Boolean = false;
   public insertedFail : Boolean = false;
 
 
-  constructor(private cartService: CartService,) { 
-    this.productsLists = this.loadProducts();
+  constructor(private cartService: CartService,private menuService: MenuService) { 
+    
+    this.loadProducts();
     this.cart = this.cartService.get();
     
   }
@@ -35,54 +38,39 @@ export class CarouselComponent implements OnInit {
 
   // FUNCIONES
 
-  public loadProducts(): Product[][]{
-    let product:Product = {
-      "_id" : '1',
-    "image" : 'sasa',
-    "name" : 'Torta Chilena',
-    "portions" : 13,
-    "price" : 13000,
-    "quant" : 0
-    };
+  async loadProducts(){
+    let products : Product[] = [];
+    let productGroups : Product[][] = [];
+    products = await this.menuService.getAllProducts();
+    productGroups = this.getProductGroups(products);
+    this.productsLists = productGroups;
+  }
 
-    let product1:Product = {
-      "_id" : '1',
-    "image" : 'sasa',
-    "name" : 'Torta Chilena',
-    "portions" : 13,
-    "price" : 13000,
-    "quant" : 0
-    };
+  public getProductGroups(products: Product[]): Product[][] {
+    let productsGroups : Product[][] = [];
+    let cont : number = 0;
+    let group : Product[] = [];
 
-    let product2:Product = {
-      "_id" : '1',
-    "image" : 'sasa',
-    "name" : 'Torta Chilena',
-    "portions" : 13,
-    "price" : 13000,
-    "quant" : 0
-    };
+    products.forEach(product => {
+      product.quant = 0;
+      if(cont < 2){
+        group.push(product);
+        cont += 1
+      }
 
-    let product3:Product = {
-      "_id" : '1',
-    "image" : 'sasa',
-    "name" : 'Torta Chilena',
-    "portions" : 13,
-    "price" : 13000,
-    "quant" : 0
-    };
+      else {
+        productsGroups.push(group);
+        group = [];
+        group.push(product);
+        cont = 1;
+      }
+    });
 
-    let product4:Product = {
-      "_id" : '1',
-    "image" : 'sasa',
-    "name" : 'Torta Chilena',
-    "portions" : 13,
-    "price" : 13000,
-    "quant" : 0
-    };
-    
+    if (group) {
+      productsGroups.push(group);
+    }
 
-    return [[product,product1],[product2,product3],[product4]];
+    return productsGroups
   }
 
   public addProduct(product: Product,id: string){
@@ -128,8 +116,5 @@ export class CarouselComponent implements OnInit {
   
 
 }
-
-
-
 
 

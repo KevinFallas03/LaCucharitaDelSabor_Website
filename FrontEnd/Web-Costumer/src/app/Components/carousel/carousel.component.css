@@ -134,7 +134,7 @@
 
 .card {
     color: #352727;
-    background-image: url(/assets/Images/image.png);
+    background-image: var(--img);
     background-size: cover;
     padding: 10rem 0 0;
     width: 80ch;

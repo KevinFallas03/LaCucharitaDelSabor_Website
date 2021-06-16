@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/Product';
 import { CartService } from '../../Services/cart-service.service';
+import { MenuService } from '../../Services/menu.service';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -10,14 +12,16 @@ import { CartService } from '../../Services/cart-service.service';
 })
 export class MenuComponent implements OnInit {
 
-  public productList : Product[];
+  //Atributos 
+  apiUrl = environment.url + "/api/util/image/";
+  public productList : Product[] = [];
   public cart : Product[];
   public hidden : Boolean = false;
   public insertedSuccess : Boolean = false;
   public insertedFail : Boolean = false;
 
-  constructor(private cartService: CartService) { 
-    this.productList = this.loadProducts();
+  constructor(private cartService: CartService,private menuService: MenuService) { 
+    this.loadProducts();
     this.cart = this.cartService.get();
     
   }
@@ -30,16 +34,14 @@ export class MenuComponent implements OnInit {
 
   // FUNCIONES
 
-  public loadProducts(): Product[]{
-    let product:Product = {};
-    product._id = '1';
-    product.image = 'sasa';
-    product.name = 'Torta Chilena';
-    product.portions = 13;
-    product.price = 13000;
-    product.quant = 0;
+  async loadProducts(){
+    let products : Product[] = await this.menuService.getAllProducts();
+    
+    products.forEach(product => {
+      product.quant = 0;
+    });
 
-    return [product,product,product,product,product];
+    this.productList = products;
   }
 
   public addProduct(product: Product){

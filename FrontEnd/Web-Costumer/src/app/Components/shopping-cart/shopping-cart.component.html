@@ -4,6 +4,16 @@
     Tu carrito de órdenes
 </div>
 
+<div class="alert alert-success" role="alert" *ngIf="insertedSuccess">
+    Órden realizada con éxito
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (close)="close()"></button>
+</div>
+
+<div class="alert alert-danger" role="alert" *ngIf="insertedFail">
+    La órden no pudo ser procesada
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (close)="close()" ></button>
+  </div>
+
 <!-- Titulos -->
 <div class="product-headers text">
     <p style="text-align:left;">
@@ -22,7 +32,7 @@
         <h1 class="title bottom-center "> Tu carrito está vacío </h1>
     </div>
     <div class="product" *ngFor= "let product of this.cart" >
-        <div class="image-container"></div>
+        <div class="image-container" style="--img: url('{{apiUrl+product.image}}');"></div>
         <div class="info-container">
             <h1 class="product-title"> {{product.name}} </h1>
             <p class="text" style="text-align:left;">
@@ -61,5 +71,5 @@
             <b> Subtotal: ₡ {{getTotal()}} </b> 
         </span>
     </div>
-    <button mat-raised-button class="button text"  > Finalizar Pedido </button>
+    <button mat-raised-button class="button text" (click)="order()" > Finalizar Pedido </button>
 </div>

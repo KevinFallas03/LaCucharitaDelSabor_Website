@@ -4,6 +4,7 @@ export interface Product {
     price?: number;
     portions?: number;
     image?: string;
+    quant?: number;
   }
   
 export default Product;

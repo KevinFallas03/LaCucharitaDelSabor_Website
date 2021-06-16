@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/app/Models/customer'
 
 import { MenuService } from 'src/app/Services/Menu/menu.service'
 import { DashboardService } from 'src/app/Services/Dashboard/dashboard.service'
-import { ContentObserver } from '@angular/cdk/observers';
+
+import { Customer } from 'src/app/Models/customer'
 
 export interface TopCostumers {
   name: string,
@@ -19,11 +19,11 @@ export interface TopCostumers {
 export class MainDashboardComponent implements OnInit {
 
   customers: TopCostumers[] = [
-    {name: 'Ignacio Álvarez', email: 'nacho.alv@gmail.com', orders: 35},
-    {name: 'Kevin Fallas', email: 'nacho.alv@gmail.com', orders: 20},
-    {name: 'Andrés Aguilar', email: 'nacho.alv@gmail.com', orders: 15},
-    {name: 'Joshep Tenorio', email: 'nacho.alv@gmail.com', orders: 14},
-    {name: 'Carlos Varela', email: 'nacho.alv@gmail.com', orders: 10},
+    {name: 'Ignacio Álvarez', email: 'nacho.alv@gmail.com', orders: 4},
+    {name: 'Kevin Fallas', email: 'test@gmail.com', orders: 3},
+    {name: 'Andrés Aguilar', email: 'andres@gmail.com', orders: 1},
+    {name: 'Joshep Tenorio', email: 'tenorio@gmail.com', orders: 1},
+    {name: 'Carlos Varela', email: 'varela@gmail.com', orders: 1},
   ];
 
   images = [
@@ -32,9 +32,6 @@ export class MainDashboardComponent implements OnInit {
     {path: 'https://i.imgur.com/6MS7V8L.png'},
     {path: 'https://i.imgur.com/AWghc3b.png'},
     {path: 'https://i.imgur.com/6MS7V8L.png'},
-    {path: 'https://i.imgur.com/AWghc3b.png'},
-    {path: 'https://i.imgur.com/6MS7V8L.png'},
-    {path: 'https://i.imgur.com/AWghc3b.png'},
   ];
 
   tempCustomer = []
@@ -60,7 +57,6 @@ export class MainDashboardComponent implements OnInit {
     this.getCompleteOrdersAmount();
     this.getPendingOrdersAmount();
     this.getHigherSellerValue();
-    //this.getTop5Customers();
     this.setCustomerList();
     this.getTop5Products();
   }

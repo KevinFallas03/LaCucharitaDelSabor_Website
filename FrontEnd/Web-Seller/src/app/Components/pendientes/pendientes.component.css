@@ -1,9 +1,15 @@
-.container.title{
+.Ccontainer {
+    position: relative;
+    width: 70%;
+    top: 32%;
+    left:22%;
+}
+
+.welcome.title{
     position: absolute;
     left: 26.39%;
     right: 55.21%;
-    top: 20.12%;
-    bottom: 73.54%;
+    top: 20%;
 }
 
 h1{
@@ -29,4 +35,42 @@ h3{
     left:50%;
     color: #352727;
     text-align: center;
+}
+
+.slick-slider {
+    width: 88%;
+    margin: auto;
+}
+
+.order-card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .order-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .order-padding {
+    padding: 2px 16px;
+  }
+
+.button {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    background-color: #352727;
+    color: white;
+    padding: 0.5em 1.25em;
+    border-radius: 20px;
+}
+
+.button:hover,
+.button:focus {
+    background-color: white;
+    color: #352727;
 }

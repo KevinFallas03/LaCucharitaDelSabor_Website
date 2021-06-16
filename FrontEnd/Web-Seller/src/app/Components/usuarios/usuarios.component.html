@@ -21,7 +21,7 @@
                         (afterChange)="afterChange($event)"
                         (beforeChange)="beforeChange($event)">
         <div ngxSlickItem *ngFor="let user of users" class="slide">
-              <div class="card" [ngStyle]="{'background-image': 'url('+ imagePath + user.image + ')'}">
+              <div class="card" style="--img: url('{{imagePath+user.image}}');">
                 <div class="card-content">
                     <h2 class="card-title"> {{user.name}} </h2>
                     <p class="card-body"> 

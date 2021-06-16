@@ -57,7 +57,7 @@ h3{
 } */
 
 .card {
-    width: 90%;
+    background-image: var(--img);
     margin-left: 10px;
     margin-bottom: 15px;
     box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);

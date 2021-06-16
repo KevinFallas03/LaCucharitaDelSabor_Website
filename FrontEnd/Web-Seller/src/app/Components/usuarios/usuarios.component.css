@@ -51,7 +51,9 @@ h3{
 /* CARDS */
 
 .card {
-    /* background-image: url(../../../assets/Images/Location.png); */
+    background-image: var(--img);
+    background-repeat: no-repeat;
+    background-position: center;
     width: 90%;
     margin-left: 10px;
     margin-bottom: 15px;
@@ -59,7 +61,7 @@ h3{
     border: none;
     border-radius: 0;
     color: #352727;
-    background-size: cover;
+    /* background-size: cover; */
     border-radius: 20px;
     overflow: hidden;
     transition: transform 500ms ease;
@@ -137,6 +139,7 @@ h3{
 
 .card-title {
     position: relative;
+    margin-top: 10px;
     width: max-content;
     font-family: 'Trebuchet MS';
     font-style: normal;

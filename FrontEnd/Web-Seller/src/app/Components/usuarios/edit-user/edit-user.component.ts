@@ -16,9 +16,9 @@ import { User } from 'src/app/Models/User';
 })
 export class EditUserComponent implements OnInit {
 
-  imageData:FormData = new FormData();
 
   imagePreview: any;
+  imageName: any;
   imagePath = "../../../assets/Images/";
 
   form: FormGroup = new FormGroup({
@@ -35,6 +35,7 @@ export class EditUserComponent implements OnInit {
     isAdmin: false,
     image: ''
   }
+  
 
   constructor(
     public dialogRef: MatDialogRef<EditUserComponent>,
@@ -45,6 +46,7 @@ export class EditUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeFormGroup(this.data);
+    this.imageName = this.data.image;
   }
   
   initializeFormGroup(data: User){
@@ -61,12 +63,12 @@ export class EditUserComponent implements OnInit {
   onFileSelect(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.imageData.append('imageFile', file);
       const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
       if (file && allowedMimeTypes.includes(file.type)) {
         const reader = new FileReader();
         reader.onload = () => {
           this.imagePreview = reader.result as string;
+          this.imageName = file.name;
         };
         reader.readAsDataURL(file);
       }
@@ -81,7 +83,7 @@ export class EditUserComponent implements OnInit {
         jobTitle: this.form.controls['jobTitle'].value,
         password: this.form.controls['password'].value,
         isAdmin: this.isAdmin(), 
-        image: this.imagePreview
+        image: this.imageName
       }
       this.authService.updateUserAuth(tempUserAuth).subscribe( 
         () => {
@@ -101,7 +103,7 @@ export class EditUserComponent implements OnInit {
         jobTitle: this.form.controls['jobTitle'].value,
         isAdmin: this.isAdmin(), 
         password: '',
-        image : this.imagePreview
+        image : this.imageName
       }
       this.authService.updateUserAuth(tempUser).subscribe( 
         () => {

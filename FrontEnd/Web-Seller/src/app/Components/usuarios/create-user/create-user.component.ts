@@ -16,10 +16,11 @@ import { User } from 'src/app/Models/User';
 })
 export class CreateUserComponent implements OnInit {
 
-  imageData:FormData = new FormData();
 
   imagePreview: any;
+  imageName: any;
   imagePath = "assets/Images/";
+  
 
   form: FormGroup = new FormGroup({
     name: new FormControl(),
@@ -36,6 +37,7 @@ export class CreateUserComponent implements OnInit {
     image: ''
   }
   
+  
   constructor(
     public dialogRef: MatDialogRef<CreateUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
@@ -50,12 +52,12 @@ export class CreateUserComponent implements OnInit {
   onFileSelect(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
-      this.imageData.append('imageFile', file);
       const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
       if (file && allowedMimeTypes.includes(file.type)) {
         const reader = new FileReader();
         reader.onload = () => {
           this.imagePreview = reader.result as string;
+          this.imageName = file.name;
         };
         reader.readAsDataURL(file);
       }
@@ -69,7 +71,7 @@ export class CreateUserComponent implements OnInit {
       jobTitle: this.form.controls['jobTitle'].value,
       password: this.form.controls['password'].value,
       isAdmin: this.isAdmin(), 
-      image: this.imagePreview
+      image: this.imageName
     }
     this.authService.createUser(tempUser).subscribe( 
       () => {
@@ -89,7 +91,7 @@ export class CreateUserComponent implements OnInit {
 
   isAdmin(){
     var jobTitle = this.form.controls['jobTitle'].value.toLowerCase();
-    if (jobTitle === "administrador")
+    if (jobTitle === "administrador" || jobTitle === "administradora")
       return true;
     else
       return false;

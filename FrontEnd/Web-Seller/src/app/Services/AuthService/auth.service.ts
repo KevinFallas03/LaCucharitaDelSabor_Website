@@ -103,4 +103,8 @@ export class AuthService {
     return this.httpClient.put(this._apiUrl+'/'+userInfo.email, userInfo);
   }
 
+  public deleteUser(userEmail: any){
+    return this.httpClient.delete(this._apiUrl+'/'+userEmail);
+  }
+
 }

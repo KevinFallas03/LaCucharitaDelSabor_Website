@@ -5,6 +5,7 @@ import { CreateUserComponent } from './create-user/create-user.component';
 import swal from 'sweetalert2';
 
 import { UserService } from 'src/app/Services/User/user.service'
+import { AuthService } from 'src/app/Services/AuthService/auth.service'
 
 import { User } from 'src/app/Models/User';
 
@@ -21,7 +22,8 @@ export class UsuariosComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    public userService: UserService
+    public userService: UserService,
+    public authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -74,11 +76,13 @@ export class UsuariosComponent implements OnInit {
   }
 
   onDelete(user: User) {
+    this.authService.deleteUser(user.email);
     this.userService.deleteById(user._id).subscribe(
       () => { 
-        swal.fire("Envio eliminado","",'success');
+        swal.fire("Usuario eliminado","",'success');
       }
     );
+    
     window.location.reload(); 
   }
 

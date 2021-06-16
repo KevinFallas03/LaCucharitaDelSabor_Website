@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -14,10 +15,12 @@ import { DeliveryComponent } from './Components/delivery/delivery.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+
 
 //Services
 import { CartService } from './Services/cart-service.service';
-import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.component';
+import { MenuService } from './Services/menu.service';
 
 @NgModule({
   declarations: [
@@ -38,8 +41,10 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
+  
   ],
-  providers: [CartService],
+  providers: [CartService,MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -87,7 +87,7 @@
 
 .card {
     color: #352727;
-    background-image: url(/assets/Images/image.png);
+    background-image: var(--img);
     background-size: cover;
     padding: 10rem 0 0;
     width: 70ch;
@@ -113,7 +113,7 @@
     --padding: 1.5rem;
     padding: var(--padding);
     background: linear-gradient(
-        hsl(0 0% 100% / 0.2),
+        hsl(0 0% 100% / 0),
         hsl(20 0% 100% / 0.5) 20%,
         hsl(0 0% 100% / 1)
 

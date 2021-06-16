@@ -17,11 +17,12 @@
                 Debe ingresar la cantidad de producto a ordenar
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (close)="close()" ></button>
               </div>
+              
                 <div class="carousel-item" *ngFor= "let productsList of productsLists ;let i=index" [ngClass]="{'active': i===0}" >
                     <div class="cards-wrapper" >
                         <div class="card-container" *ngFor= "let product of productsList">
                             
-                            <div class="card">
+                            <div class="card" style="--img: url('{{apiUrl+product.image}}');">
                                 <div class="card-content">
                                     <h2 class="card-title"> {{product.name}} </h2>
                                     <p class="card-body"> 

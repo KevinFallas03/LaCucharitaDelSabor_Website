@@ -17,7 +17,7 @@
     <mat-grid-tile *ngFor= "let product of productList">
         
         <div class="card-container" >
-            <div class="card">
+            <div class="card" style="--img: url('{{apiUrl+product.image}}');">
                 <div class="card-content">
                     <h2 class="card-title"> {{product.name}} </h2>
                     <p class="card-body"> 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../Services/cart-service.service';
 import { Product } from 'src/app/Models/Product';
+import { environment } from '../../../environments/environment';
 
 
 
@@ -12,7 +13,11 @@ import { Product } from 'src/app/Models/Product';
 })
 export class ShoppingCartComponent implements OnInit {
 
+  //Atributos
+  apiUrl = environment.url + "/api/util/image/";
   cart : Product[] = this.shoppingCart;
+  public insertedSuccess : Boolean = false;
+  public insertedFail : Boolean = false;
   
   constructor(private cartService : CartService) { }
 
@@ -67,6 +72,22 @@ export class ShoppingCartComponent implements OnInit {
     });
 
     return sum;
+  }
+
+  public order(): void {
+    if(this.cart.length != 0){
+      console.log(this.cart);
+      this.insertedSuccess = true;
+      this.insertedFail = false;
+    }
+    else {
+      this.insertedFail = true;
+      this.insertedSuccess = false;
+    }
+  }
+
+  close(){
+    this.insertedFail = this.insertedSuccess = false;
   }
 
 }

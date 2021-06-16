@@ -3,12 +3,10 @@ const dashboardController = {};
 
 dashboardController.getHigherSell = async (req, res) => {
     try{
-        console.log("entro");
-        const highierSell = await Order.find({},{"totalAmount":1})
+        const highierSell = await Order.find({},{"_id":0,"totalAmount":1})
         .sort({totalAmount: -1})
         .limit(1)
-        //console.log(highierSell);
-        res.json({value: highierSell});
+        res.json(highierSell);
     } catch (error) {
         res.json({message: error});
     }
@@ -68,10 +66,10 @@ dashboardController.getTop5Products = async (req, res) => {
 
 dashboardController.getUserName = async (req, res) => {
     try{
-        const customerName = await Order.find(
+        const customerName = await Order.findOne(
             {'customerInfo.email': req.params.email},
-            {'customerInfo.contactInfo.name':1
-        })
+            {'customerInfo.contactInfo.name':1, 'customerInfo.email':1}
+        )
         .limit(1);
         res.json(customerName);
     }catch (error){

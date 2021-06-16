@@ -7,7 +7,7 @@ router.get("/", productController.getAllProducts);
 
 router.get("/getProduct/:id", productController.getProduct);
 
-router.get("/imageByName", productController.getProductImageByName);
+router.post("/imageByName", productController.getProductImageByName); // GET THE PRODUCT NAME SEND IN THE BODY
 
 router.post("/", productController.createProduct);
  

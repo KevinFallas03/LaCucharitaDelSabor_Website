@@ -21,9 +21,9 @@ export class MenuService {
     );
   }
 
-  getProductImageByName(id: any){
-    return this._http.get<any>(
-      `${this._apiUrl}/imageByName/${id}`
+  getProductImageByName(productName: any){
+    return this._http.post<any>(
+      `${this._apiUrl}/imageByName/`, productName
     );
   }
 

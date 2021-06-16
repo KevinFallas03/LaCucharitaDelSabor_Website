@@ -50,7 +50,7 @@ export class EditDeliveryComponent implements OnInit {
      () => {
         swal.fire("Editado", "La zona de envio se ha editado correctamente.", 'success').then(function() {
           window.location.reload();
-        });;;
+        });
       }
     );
     this.deliveryService.getAllDeliveries().subscribe(

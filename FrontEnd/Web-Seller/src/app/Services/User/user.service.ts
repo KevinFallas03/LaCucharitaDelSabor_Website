@@ -15,9 +15,9 @@ export class UserService {
     return this._http.get<any>(this._apiUrl);
   }
 
-  getUser(id: any){
+  getUser(email: any){
     return this._http.get<any>(
-      `${this._apiUrl}/${id}`
+      `${this._apiUrl}/${email}`
     );
   }
 

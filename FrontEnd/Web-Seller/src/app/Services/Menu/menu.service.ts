@@ -17,7 +17,13 @@ export class MenuService {
 
   getProduct(id: any){
     return this._http.get<any>(
-      `${this._apiUrl}/${id}`
+      `${this._apiUrl}/getProduct/${id}`
+    );
+  }
+
+  getProductImageByName(id: any){
+    return this._http.get<any>(
+      `${this._apiUrl}/imageByName/${id}`
     );
   }
 

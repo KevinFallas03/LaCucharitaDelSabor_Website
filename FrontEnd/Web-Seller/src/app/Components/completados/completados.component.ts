@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import swal from 'sweetalert2';
 
 import { OrderService } from 'src/app/Services/Order/order.service';
 

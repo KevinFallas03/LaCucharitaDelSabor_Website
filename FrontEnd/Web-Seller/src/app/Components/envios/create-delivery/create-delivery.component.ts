@@ -34,7 +34,6 @@ export class CreateDeliveryComponent implements OnInit {
   }
 
   onSubmit(){
-    
     this.delivery.location = this.form.controls['location'].value;
     this.delivery.price = this.form.controls['price'].value;
     this.onSave();
@@ -42,17 +41,22 @@ export class CreateDeliveryComponent implements OnInit {
   }
 
   onSave(){
-    var deliveries;
     this.form.reset();
     this.deliveryService.postDelivery(this.delivery).subscribe(
       data => {
-        swal.fire("Añadido", "El envio " + data.location + " se ha añadido.", 'success');
+        swal.fire("Añadido", "El envio " + data.location + " se ha añadido.", 'success').then(function() {
+          window.location.reload();
+        });;
       }
     );
     this.deliveryService.getAllDeliveries().subscribe(
-      data => deliveries = data
-    )
-    window.location.reload();
+      data =>{
+        swal.fire("Añadido", "El envio " + data.location + " se ha añadido.", 'success').then(function() {
+          window.location.reload();
+        });;
+      }
+    );
+
   }
 
   onClose(){

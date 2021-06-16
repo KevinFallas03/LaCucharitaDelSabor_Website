@@ -39,6 +39,25 @@ h3{
     text-align: center;
 }
 
+.text-title{
+    position: relative;
+    top: 34%;
+    margin-left: -6%;
+    word-wrap: break-word;
+    font-weight: 600px;
+    font-size: 16px;
+    color: #352727;
+}
+
+.text-number{
+    position: relative;
+    word-break: break-all;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 30px;
+    left: 38%;
+    color: #352727;
+}
 
 .CContainer.queries{
     position: relative;

@@ -6,13 +6,7 @@ export interface Costumers {
   ordenes: number;
 }
 
-const COSTUMER_DATA: Costumers[] = [
-  {nombre: 'Ignacio Álvarez', correo: 'nacho.alv@gmail.com', ordenes: 35},
-  {nombre: 'Kevin Fallas', correo: 'nacho.alv@gmail.com', ordenes: 20},
-  {nombre: 'Andrés Aguilar', correo: 'nacho.alv@gmail.com', ordenes: 15},
-  {nombre: 'Joshep Tenorio', correo: 'nacho.alv@gmail.com', ordenes: 14},
-  {nombre: 'Carlos Varela', correo: 'nacho.alv@gmail.com', ordenes: 10},
-];
+
 
 
 @Component({
@@ -22,7 +16,13 @@ const COSTUMER_DATA: Costumers[] = [
 })
 export class MainDashboardComponent implements OnInit {
 
-  constructor() { }
+  customers: Costumers[] = [
+    {nombre: 'Ignacio Álvarez', correo: 'nacho.alv@gmail.com', ordenes: 35},
+    {nombre: 'Kevin Fallas', correo: 'nacho.alv@gmail.com', ordenes: 20},
+    {nombre: 'Andrés Aguilar', correo: 'nacho.alv@gmail.com', ordenes: 15},
+    {nombre: 'Joshep Tenorio', correo: 'nacho.alv@gmail.com', ordenes: 14},
+    {nombre: 'Carlos Varela', correo: 'nacho.alv@gmail.com', ordenes: 10},
+  ];
 
   images = [
     {path: 'https://i.imgur.com/6MS7V8L.png'},
@@ -35,8 +35,16 @@ export class MainDashboardComponent implements OnInit {
     {path: 'https://i.imgur.com/AWghc3b.png'},
   ];
 
+  completeOrders = 0;
+
+  pendingOrders = 0;
+
+  higherSell = 0;
+
+  constructor() { }
+
   displayedColumns: string[] = ['nombre', 'correo', 'ordenes'];
-  dataSource = COSTUMER_DATA;
+  dataSource = this.customers;
 
   ngOnInit(): void {
   }

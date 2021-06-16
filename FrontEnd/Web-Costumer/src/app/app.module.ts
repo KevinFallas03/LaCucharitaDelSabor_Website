@@ -10,7 +10,7 @@ import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './Components/header/header.component';
 import { BannerComponent } from './Components/banner/banner.component';
 import { SubscriptionComponent } from './Components/subscription/subscription.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DeliveryComponent } from './Components/delivery/delivery.component';
 import { FooterComponent } from './Components/footer/footer.component';
 import { CarouselComponent } from './Components/carousel/carousel.component';
@@ -21,6 +21,7 @@ import { ShoppingCartComponent } from './Components/shopping-cart/shopping-cart.
 //Services
 import { CartService } from './Services/cart-service.service';
 import { MenuService } from './Services/menu.service';
+import { DeliveryService } from './Services/delivery.service';
 
 @NgModule({
   declarations: [
@@ -42,9 +43,10 @@ import { MenuService } from './Services/menu.service';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   
   ],
-  providers: [CartService,MenuService],
+  providers: [CartService,MenuService,DeliveryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

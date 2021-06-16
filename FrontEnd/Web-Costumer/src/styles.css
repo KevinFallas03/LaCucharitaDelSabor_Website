@@ -14,6 +14,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     box-shadow: none;
 }
 
+.mat-select-value-text {
+    color: white !important;
+}
+
 
 .mat-expansion-panel-body {
     padding: 0 !important;

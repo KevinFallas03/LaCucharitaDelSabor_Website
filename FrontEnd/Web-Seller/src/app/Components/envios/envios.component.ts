@@ -77,10 +77,11 @@ export class EnviosComponent implements OnInit {
   onDelete(delivery: Delivery) {
     this.deliveryService.deleteById(delivery._id).subscribe(
       () => { 
-        swal.fire("Envio eliminado","",'success');
+        swal.fire("Envio eliminado","",'success').then(function() {
+          window.location.reload();
+        });
       }
     );
-    window.location.reload(); 
   }
 
   fillDeliveryList(){

@@ -48,13 +48,15 @@ export class EditDeliveryComponent implements OnInit {
     console.log(this.data._id);
     this.deliveryService.findByIdAndUpdate(this.data._id, this.delivery).subscribe(
      () => {
-        swal.fire("Editado", "La zona de envio se ha editado correctamente.", 'success');
+        swal.fire("Editado", "La zona de envio se ha editado correctamente.", 'success').then(function() {
+          window.location.reload();
+        });;;
       }
     );
     this.deliveryService.getAllDeliveries().subscribe(
-      data => deliveries = data
+      () => {console.log("actulizando productos")}
     )
-    window.location.reload();
+
   }
 
   initializeFormGroup(data: Delivery){

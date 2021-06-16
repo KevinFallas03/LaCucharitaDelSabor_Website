@@ -27,16 +27,16 @@ export class DashboardService {
     return this._http.get<any>(this._apiUrl+'/ordersAmount');
   }
 
-  getTop5Customers(){
-    return this._http.get<any>(this._apiUrl+'/topCostumers');
+  async getTop5Customers(){
+    return await this._http.get<any>(this._apiUrl+'/topCostumers').toPromise();
   }
 
-  getTop5Products(){
-    return this._http.get<any>(this._apiUrl+'/topProducts');
+  async getTop5Products(){
+    return await this._http.get<any>(this._apiUrl+'/topProducts').toPromise();
   }
 
-  getUserName(customer: any){
-    return this._http.get<any>(this._apiUrl+'/getUser/'+customer.email);
+  async getUserName(customer: any){
+    return await this._http.get<any>(this._apiUrl+'/getUser/'+customer.email).toPromise();
   }
 
 }

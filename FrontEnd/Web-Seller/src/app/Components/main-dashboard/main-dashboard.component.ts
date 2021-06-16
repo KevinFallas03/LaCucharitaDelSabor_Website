@@ -5,6 +5,12 @@ import { MenuService } from 'src/app/Services/Menu/menu.service'
 import { DashboardService } from 'src/app/Services/Dashboard/dashboard.service'
 import { ContentObserver } from '@angular/cdk/observers';
 
+export interface TopCostumers {
+  name: string,
+  email: string,
+  orders: number
+}
+
 @Component({
   selector: 'app-main-dashboard',
   templateUrl: './main-dashboard.component.html',
@@ -12,7 +18,7 @@ import { ContentObserver } from '@angular/cdk/observers';
 })
 export class MainDashboardComponent implements OnInit {
 
-  customers: Customer[] = [
+  customers: TopCostumers[] = [
     {name: 'Ignacio Álvarez', email: 'nacho.alv@gmail.com', orders: 35},
     {name: 'Kevin Fallas', email: 'nacho.alv@gmail.com', orders: 20},
     {name: 'Andrés Aguilar', email: 'nacho.alv@gmail.com', orders: 15},
@@ -54,6 +60,9 @@ export class MainDashboardComponent implements OnInit {
     this.getCompleteOrdersAmount();
     this.getPendingOrdersAmount();
     this.getHigherSellerValue();
+    //this.getTop5Customers();
+    this.setCustomerList();
+    this.getTop5Products();
   }
 
   getAllOrdersAmount(){
@@ -75,7 +84,6 @@ export class MainDashboardComponent implements OnInit {
   getPendingOrdersAmount(){
     this.dashboardService.getPendingAmount().subscribe(
       data => {
-        console.log(data.value);
         this.pendingOrdersAmount = data.value;
       }
     )
@@ -89,21 +97,26 @@ export class MainDashboardComponent implements OnInit {
     )
   }
 
-  getTop5Customers(){
-    this.dashboardService.getTop5Customers().subscribe(
-      data => {
-        this.tempCustomer = data
-      }
-    )
+  async getTop5Customers(){
+    let customers = await this.dashboardService.getTop5Customers();
+    return customers
   }
 
-  setCustomerList(){
-    var tempCustomer = {}
-    this.tempCustomer.forEach(customer  => {
-      this.dashboardService.getUserName(customer).subscribe(
-        data => this.customers.push()
-      )
+  async setCustomerList(){
+    let customers = await this.getTop5Customers();
+    customers.forEach((customer:any) => {
+      this.customers.push(customer);
     });
+    console.log(this.customers);
+
+  }
+
+  async getTop5Products(){
+    let products = await this.dashboardService.getTop5Products();
+    products.forEach(function(product:any) {
+      //console.log(product);
+    })
+    
   }
 
 }

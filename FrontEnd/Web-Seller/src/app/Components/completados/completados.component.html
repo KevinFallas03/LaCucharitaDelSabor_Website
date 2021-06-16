@@ -15,19 +15,37 @@
         <div ngxSlickItem *ngFor="let order of orders" class="slide">
             <div class="order-card">
                 <div class="order-padding">
-                  <h4><b>Orden: {{order._id}}</b></h4>
-                  <p>Cliente: {{order.customerInfo.contactInfo.name}}</p>
-                  <p>Email: {{order.customerInfo.email}}</p>
-                  <p>Phone: {{order.customerInfo.contactInfo.phone}}</p>                     
-                  <p>Nota de la order: {{order.orderNote}}</p>
-                  <p>Total a cobrar: {{order.totalAmount}}</p>
-                  <p>Productos: </p>
+
+                  <h3>Orden ID# {{order._id}}</h3>
+                  <br> <br>
+                  <p> <b>Pedido</b> </p>
                   <div *ngFor="let product of order.orderInfo">
-                    <p>{{product.quant}} {{product.name}}</p>
+                    <p style="padding-left: 2rem;">{{product.quant}} {{product.name}}</p>
                   </div>
+                  <br>
+                  <p><b>Nota del pedido</b></p>
+                  <p style="padding-left: 2rem;">{{order.orderNote}}</p>
+                  
+                <br> <br><br> <br>
+                <h4>Precio total del pedido: ₡ {{order.totalAmount}}</h4>
+
+                <div class="contactInfo">
+                    <div style="float: left; padding-right: 2rem;">
+                        <i class="far fa-user-circle fa-5x"></i>
+                    </div>
+                    <p class="contactName"> {{order.customerInfo.contactInfo.name}}</p>
+                    <p class=" contactText">
+                        <i class="far fa-envelope"></i>
+                        {{order.customerInfo.email}}
+                    </p>
+                    <p class="contactText">
+                        <i class="fas fa-phone-alt"></i>
+                        {{order.customerInfo.contactInfo.phone}}
+                    </p>  
+                </div>                              
+
                 </div>
             </div>
         </div>
     </ngx-slick-carousel>
 </div>
-

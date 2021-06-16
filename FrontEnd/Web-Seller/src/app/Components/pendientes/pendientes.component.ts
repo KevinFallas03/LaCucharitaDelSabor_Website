@@ -36,7 +36,6 @@ export class PendientesComponent implements OnInit {
           window.location.reload();
         });
     });
-    // window.location.reload();
   }
 
   slideConfig = {

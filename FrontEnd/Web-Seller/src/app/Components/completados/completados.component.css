@@ -23,8 +23,8 @@ h1{
 h2{
     font-weight: 400;
     font-size: 26px;
-    line-height: 30px;
-    text-align: right;
+    line-height: 25px;
+    text-align: left;
     color: #352727;
 }
 
@@ -34,6 +34,10 @@ h3{
     line-height: 30px;
     left:50%;
     color: #352727;
+    text-align: left;
+}
+
+h4{
     text-align: center;
 }
 
@@ -44,7 +48,6 @@ h3{
 
 .order-card {
     /* Add shadows to create the "card" effect */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 5px; /* 5px rounded corners */
   }
@@ -61,11 +64,11 @@ h3{
 
 .button {
     cursor: pointer;
+    float: right;
     display: inline-block;
     text-decoration: none;
-    background-color: #352727;
-    color: white;
-    padding: 0.5em 1.25em;
+    background-color: #D2B895;
+    color: black;
     border-radius: 20px;
 }
 
@@ -74,3 +77,26 @@ h3{
     background-color: white;
     color: #352727;
 }
+
+.contactInfo {
+    width: 100%;
+    height: 6rem;
+    background-color: #90694A;
+    border-radius: 40px;
+    border-top-left-radius: 0px;
+    padding: 1rem;
+    padding-left: 3rem;
+    color:#D2B895;
+}
+
+.contactName {
+    color: white;
+    font-size: 26px;
+}
+
+.contactText {
+    float: left;
+    color: white;
+    font-size: 16px;
+    padding-left: 3rem;
+}   

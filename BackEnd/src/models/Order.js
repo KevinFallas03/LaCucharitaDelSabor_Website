@@ -5,6 +5,7 @@
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
 
+ const conn = require('../database');
 
  const contactInfoSchema = new Schema(
     {
@@ -93,20 +94,17 @@ const deliveryInfoSchema = new Schema(
             type: Boolean,
             required: true
         }
-        // Se quita esto por se agregan con los timestamps
-        //  ,date: {  
-        //     type: Date,
-        //     default: Date.now(),
-        //     required: true
-        //  }
-        },
-        {
-            versionKey: false, 
-            timestamps: true, // createdAt and updatedAt 
-        },
-        {
-            collection: 'Order'
-        }
+    },
+    {
+        versionKey: false, 
+        timestamps: true, // createdAt and updatedAt 
+    },
+    {
+        collection: 'Order'
+    }
  );
  
- module.exports = mongoose.model("Order", orderSchema); 
+ 
+ let order = conn.db_Reposteria.model("Order", orderSchema, "Order");
+
+ module.exports = order; 

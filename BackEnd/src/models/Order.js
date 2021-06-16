@@ -11,11 +11,11 @@
     {
        name: { 
            type: String, 
-           required: true 
+           required: false 
        },
        phone: {
            type: String,
-           required: true
+           required: false
        }
 
     }
@@ -25,11 +25,11 @@
      {
         email: { 
             type: String, 
-            required: true 
+            required: false 
         },
         contactInfo : {
-            type: [contactInfoSchema],
-            required: true
+            type: contactInfoSchema,
+            required: false
         }
      }
  )
@@ -38,19 +38,19 @@
     {
         name: { 
             type: String, 
-            required: true 
+            required: false 
         },
         price: {
             type: Number,
-            required: true
+            required: false
         },
         productNote: {
             type: String,
-            required: true
+            required: false
         },
-        amount: {
+        quant: {
             type: Number,
-            required: true
+            required: false
         }
     }
 )
@@ -59,15 +59,15 @@ const deliveryInfoSchema = new Schema(
     {
         location: { 
             type: String, 
-            required: true 
+            required: false 
         },
         price: {
             type: Number,
-            required: true
+            required: false
         },
         deliveryNote: {
             type: String,
-            required: true
+            required: false
         }
     }
 )
@@ -76,28 +76,28 @@ const deliveryInfoSchema = new Schema(
    {
        customerInfo: { 
          type: customerInfoSchema, 
-         required: true 
+         required: false 
         },
         orderInfo: {
             type: [orderInfoSchema],
-            required: true 
+            required: false 
         },
         deliveryInfo: {
             type: deliveryInfoSchema, 
-            required: true 
+            required: false 
         },
         orderNote: {
             type: String, 
-            required: true 
+            required: false 
         },
         totalAmount: {
             type: Number,
-            required: true
+            required: false
         },
         finished: {
             type: Boolean,
             default: false,
-            required: true
+            required: false
         }
     },
     {

@@ -94,7 +94,7 @@
                 <mat-form-field class="delivery-input input-text" appearance="fill">
                     <mat-label>Zona de Envío</mat-label>
                     <mat-select [(value)]="selectedDelivery">
-                        <mat-option *ngFor="let delivery of deliveriesList" [value]="delivery.location">
+                        <mat-option *ngFor="let delivery of deliveriesList" [value]="delivery">
                             {{delivery.location}}
                         </mat-option>
                     </mat-select>

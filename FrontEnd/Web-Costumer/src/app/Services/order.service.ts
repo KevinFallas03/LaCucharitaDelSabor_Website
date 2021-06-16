@@ -14,8 +14,7 @@ export class OrderService {
 
   constructor(private _http: HttpClient) { }
 
-  async postOrder(order:Order){
-    const data = await this._http.post<any>(this._apiUrl,order).toPromise();
-    return data;
+  postOrder(order:Order){
+    return this._http.post<any>(this._apiUrl, order)
   }
 }

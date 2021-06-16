@@ -131,7 +131,7 @@ export class ShoppingCartComponent implements OnInit {
     if(this.completeOrder(order)){
       this.insertedSuccess = true;
       this.insertedFail = false;
-      this.orderService.postOrder(order);
+      this.orderService.postOrder(order).subscribe();
 
     }
 

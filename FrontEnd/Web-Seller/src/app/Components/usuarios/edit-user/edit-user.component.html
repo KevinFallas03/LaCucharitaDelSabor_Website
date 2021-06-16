@@ -1,1 +1,40 @@
-<p>edit-user works!</p>
+<h1 style="text-align: center">Editar usuario</h1>
+
+<div *ngIf="imagePreview">
+  <img [src]="imagePreview" alt="Imagen ilustrativa del perfil" /> <br>
+</div><br>
+<label  class="button-upload">
+  <input (change)="onFileSelect($event)" type="file"/>
+  <i class="fas fa-upload"></i>
+  Eligir imagen
+</label><br>
+<form [formGroup]="form"> 
+    <div class="inputs-container">
+        <div>
+          <label>Nombre</label>
+          <input type="text" formControlName="name" placeholder="">
+        </div><br>
+        <div>
+          <label>Cargo</label>
+          <input type="text" formControlName="jobTitle" placeholder="">
+        </div><br>
+        <div>
+            <label>Correo</label>
+            <input type="text" formControlName="email" placeholder="">
+          </div><br>
+        <div>
+          <label>Contraseña</label>
+          <input type="text" formControlName="password" placeholder="">
+        </div><br>
+    </div>
+    <div>
+      <button id="Btn-Regresar" mat-raised-button class="button" (click)="onClose()">
+        <i class="fas fa-arrow-left"></i>
+        Regresar 
+      </button>
+      <button id="Btn-Guardar" mat-raised-button class="button" style="left: 15px;" (click)="onSubmit()">
+        <i class="fas fa-save"></i>
+        Guardar
+      </button>
+    </div>
+</form>

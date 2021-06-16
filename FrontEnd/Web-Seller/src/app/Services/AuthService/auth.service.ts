@@ -15,6 +15,7 @@ export class AuthService {
   private currentUser: UserAuth;
   private token: any;
   private jwtHelper: JwtHelperService;
+  private _apiUrl = environment.url + "/api/userAuth";
 
   constructor(private httpClient: HttpClient) {
     this.isAuthenticated = false;
@@ -89,8 +90,17 @@ export class AuthService {
   }
 
   public authenticateUser(userInfo: UserAuth): Observable<any> {
-    return this.httpClient.post(`${environment.url}/api/userAuth/login`, userInfo, {
+    return this.httpClient.post(`${this._apiUrl}/login`, userInfo, {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  public createUser(userInfo: UserAuth){
+    return this.httpClient.post<any>(this._apiUrl, userInfo);
+  }
+
+  public updateUserAuth(userInfo: any){
+    return this.httpClient.put(this._apiUrl+'/'+userInfo.email, userInfo);
+  }
+
 }

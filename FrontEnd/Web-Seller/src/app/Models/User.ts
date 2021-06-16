@@ -4,6 +4,7 @@ export interface User {
     email?: string;
     jobTitle?: string;
     isAdmin?: boolean;
+    image?: string;
 }
   
 export default User;

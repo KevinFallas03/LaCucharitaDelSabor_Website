@@ -24,7 +24,7 @@ export class EditProductComponent implements OnInit {
     name: new FormControl(),
     price: new FormControl(),
     portions: new FormControl(),
-  })
+  });
 
   product:Product = {
     name: '',
@@ -43,6 +43,16 @@ export class EditProductComponent implements OnInit {
   ngOnInit(): void {
     this.initializeFormGroup(this.data);
   }
+
+  initializeFormGroup(data: Product){
+    console.log(data);
+    this.form.setValue({
+      name: data.name, // this.data.name
+      price: data.price,
+      portions: data.portions
+    });
+    this.imagePreview = environment.url+ "/api/util/image/" + data.image as string;
+  }
   
   onFileSelect(event: any) {
     if (event.target.files.length > 0) {
@@ -50,12 +60,12 @@ export class EditProductComponent implements OnInit {
       this.imageData.append('imageFile', file);
       const allowedMimeTypes = ["image/png", "image/jpeg", "image/jpg"];
       if (file && allowedMimeTypes.includes(file.type)) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result as string;
-      };
-      reader.readAsDataURL(file);
-    }
+        const reader = new FileReader();
+        reader.onload = () => {
+          this.imagePreview = reader.result as string;
+        };
+        reader.readAsDataURL(file);
+      }
     }
   }
 
@@ -85,7 +95,7 @@ export class EditProductComponent implements OnInit {
   }
 
   onSave(){
-    var products;
+    // var products;
     this.form.reset();
     console.log(this.data._id);
     this.menuService.findByIdAndUpdate(this.data._id, this.product).subscribe(
@@ -93,21 +103,13 @@ export class EditProductComponent implements OnInit {
         swal.fire("Editado", "El producto se ha editado correctamente.", 'success');
       }
     );
-    this.menuService.getAllProducts().subscribe(
-      data => products = data
-    )
+    // this.menuService.getAllProducts().subscribe(
+    //   data => products = data
+    // )
     window.location.reload();
   }
 
-  initializeFormGroup(data: Product){
-    console.log(data);
-    this.form.setValue({
-      name: data.name, // this.data.name
-      price: data.price,
-      portions: data.portions
-    });
-    this.imagePreview = environment.url+ "/api/util/image/" + data.image as string;
-  }
+  
 
   onClose(){
     this.dialogRef.close();

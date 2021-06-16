@@ -5,6 +5,7 @@
  const mongoose = require("mongoose");
  const { Schema } = mongoose;
 
+ const conn = require('../database');
 
  const contactInfoSchema = new Schema(
     {
@@ -73,34 +74,37 @@ const deliveryInfoSchema = new Schema(
  
  const orderSchema = new Schema(
    {
-     customerInfo: { 
+       customerInfo: { 
          type: customerInfoSchema, 
          required: true 
-     },
-     orderInfo: {
-         type: [orderInfoSchema],
-         required: true 
-     },
-     deliveryInfo: {
-         type: deliveryInfoSchema, 
-         required: true 
-     },
-     orderNote: {
-         type: String, 
-         required: true 
-     },
-     finished: {
-        type: Boolean,
-        required: true
-     },
-     date: {
-        type: Date,
-        required: true
-     }
-   },
-   {
-    collection: 'Order' // createdAt and updatedAt 
-   }
+        },
+        orderInfo: {
+            type: [orderInfoSchema],
+            required: true 
+        },
+        deliveryInfo: {
+            type: deliveryInfoSchema, 
+            required: true 
+        },
+        orderNote: {
+            type: String, 
+            required: true 
+        },
+        finished: {
+            type: Boolean,
+            required: true
+        }
+    },
+    {
+        versionKey: false, 
+        timestamps: true, // createdAt and updatedAt 
+    },
+    {
+        collection: 'Order'
+    }
  );
  
- module.exports = mongoose.model("Order", orderSchema); 
+ 
+ let order = conn.db_Reposteria.model("Order", orderSchema, "Order");
+
+ module.exports = order; 

@@ -115,11 +115,13 @@ export class EditUserComponent implements OnInit {
           console.log("información del usuario actualizada");
         }
       );
-      swal.fire("Editado", "El usuario se ha editado correctamente.", 'success');
+      swal.fire("Editado", "El usuario se ha editado correctamente.", 'success').then(function() {
+        window.location.reload();
+      });
     }
     
     this.dialogRef.close();
-    window.location.reload();
+
   }
 
   isAdmin(){

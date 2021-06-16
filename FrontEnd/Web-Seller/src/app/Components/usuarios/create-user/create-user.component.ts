@@ -83,10 +83,12 @@ export class CreateUserComponent implements OnInit {
         console.log("usuario en la base de datos de creado");
       }
     );
-    swal.fire("Editado", "El usuario se ha creado correctamente.", 'success');
+    swal.fire("Editado", "El usuario se ha creado correctamente.", 'success').then(function() {
+      window.location.reload();
+    });
 
     this.dialogRef.close();
-    window.location.reload();
+   
   }
 
   isAdmin(){

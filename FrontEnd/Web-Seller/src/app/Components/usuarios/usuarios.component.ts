@@ -79,7 +79,9 @@ export class UsuariosComponent implements OnInit {
     this.authService.deleteUser(user.email);
     this.userService.deleteById(user._id).subscribe(
       () => { 
-        swal.fire("Usuario eliminado","",'success');
+        swal.fire("Usuario eliminado","",'success').then(function() {
+          window.location.reload();
+        });
       }
     );
     

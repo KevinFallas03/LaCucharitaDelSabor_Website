@@ -1,5 +1,5 @@
 # Repostería Sitio Web
--- añandir descripción
+Repositorio para el sitio web de una repostería. Donde se implementan dos sitios web, el sitio para el cliente donde podrá ver los productos disponibles, información de envíos, información de contacto, así como ordenar productos. El sitio del vendedor, aquí se podrán realizar las operaciones CRUD para la página del cliente, al igual que ver la información sobre los pedidos de los clientes.
 
 ## Summary
 
